@@ -1,68 +1,142 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+#root {
+  max-width: 320px;
 
-  font-synthesis: none;
+  --primary-color-bl: #1d1e21;
+  --secondary-color-bl: #252539;
+  --color-gray: #6a6a6f;
+  --color-gray-header: #93939a;
+  --color-white: #ffffff;
+  --color-footer: #f7f8fa;
+  --color-red: #e85050;
+  --color-green: #59b17a;
+  --color-light-green: #e7f1ed;
+
+  --image-logo-mobile: url(../assets/images/logo-mobile.png);
+  --image-logo-mobile2x: url(../assets/images/logo-mobile@2x.png);
+  --image-logo-desktop: url(../assets/images/logo-desktop.png);
+  --image-logo-desktop2x: url(../assets/images/logo-desktop@2x.png);
+  --image-hero: url(../assets/images/hero.png);
+  --image-hero2x: url(../assets/images/hero@2x.png);
+  --bg-image-round-pill: url(../assets/images/round-pill.png);
+  --bg-image-tablets: url(../assets/images/tablets.png);
+  --image-stars: url(../assets/images/stars.png);
+  --image-stars2x: url(../assets/images/stars@2x.png);
+
+  /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@media screen and (min-width: 768px) {
+  #root {
+    max-width: 768px;
+  }
 }
-a:hover {
-  color: #535bf2;
+
+@media screen and (min-width: 1440px) {
+  #root {
+    max-width: 1440px;
+  }
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #f7f8fa;
+  margin: 0 auto;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+a {
+  font-size: 12px;
+  line-height: 150%;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: var(--main-color-bl);
+}
+
+p {
+  font-size: 12px;
+  line-height: 150%;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 60px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
   font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--color-white);
+  background-color: var(--color-green);
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: #3f945f;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+.logo {
+  width: 135px;
+  height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 172px;
+    height: 44px;
   }
 }
