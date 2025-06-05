@@ -4,29 +4,31 @@
   box-sizing: border-box;
 }
 
-#root {
+:root {
   max-width: 320px;
 
   --primary-color-bl: #1d1e21;
   --secondary-color-bl: #252539;
   --color-gray: #6a6a6f;
   --color-gray-header: #93939a;
+  --color-gray-border: #d9d9d9;
   --color-white: #ffffff;
   --color-footer: #f7f8fa;
   --color-red: #e85050;
   --color-green: #59b17a;
   --color-light-green: #e7f1ed;
+  --bg-white: #f1f1f1;
 
-  --image-logo-mobile: url(../assets/images/logo-mobile.png);
-  --image-logo-mobile2x: url(../assets/images/logo-mobile@2x.png);
-  --image-logo-desktop: url(../assets/images/logo-desktop.png);
-  --image-logo-desktop2x: url(../assets/images/logo-desktop@2x.png);
-  --image-hero: url(../assets/images/hero.png);
-  --image-hero2x: url(../assets/images/hero@2x.png);
-  --bg-image-round-pill: url(../assets/images/round-pill.png);
-  --bg-image-tablets: url(../assets/images/tablets.png);
-  --image-stars: url(../assets/images/stars.png);
-  --image-stars2x: url(../assets/images/stars@2x.png);
+  --image-logo-mobile: url(./assets/images/logo-mobile.png);
+  --image-logo-mobile2x: url(./assets/images/logo-mobile@2x.png);
+  --image-logo-desktop: url(./assets/images/logo-desktop.png);
+  --image-logo-desktop2x: url(./assets/images/logo-desktop@2x.png);
+  --image-hero: url(./assets/images/hero.png);
+  --image-hero2x: url(./assets/images/hero@2x.png);
+  --bg-image-round-pill: url(./assets/images/round-pill.png);
+  --bg-image-tablets: url(./assets/images/tablets.png);
+  --image-stars: url(./assets/images/stars.png);
+  --image-stars2x: url(./assets/images/stars@2x.png);
 
   /* font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -48,12 +50,13 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f7f8fa;
+  background-color: var(--color-footer);
   margin: 0 auto;
 }
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 h1,
@@ -65,11 +68,6 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 ul,
@@ -87,6 +85,7 @@ img {
 a {
   font-size: 12px;
   line-height: 150%;
+  text-decoration: none;
 }
 
 a:hover,
@@ -117,7 +116,7 @@ button {
   color: var(--color-white);
   background-color: var(--color-green);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 250ms;
 }
 
 button:hover {
@@ -128,15 +127,3 @@ button:hover {
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
-
-.logo {
-  width: 135px;
-  height: 32px;
-}
-
-@media screen and (min-width: 768px) {
-  .logo {
-    width: 172px;
-    height: 44px;
-  }
-}

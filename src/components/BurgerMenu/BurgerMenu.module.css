@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(29, 30, 33, 0.45);
+  z-index: 9;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-green);
+  cursor: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 40px;
+}
+
+.closeIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: var(--color-white);
+  transition: color 250ms;
+  position: absolute;
+  top: 31px;
+  right: 20px;
+}
+
+.closeIcon:hover {
+  color: var(--color-gray-border);
+}

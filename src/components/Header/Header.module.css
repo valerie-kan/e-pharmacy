@@ -1,0 +1,41 @@
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 335px;
+  padding: 22px 20px;
+}
+
+.logoImg {
+  width: 135px;
+  height: 32px;
+  content: var(--image-logo-mobile);
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .logoImg {
+    content: var(--image-logo-mobile2x);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logoImg {
+    width: 172px;
+    height: 44px;
+    content: var(--image-logo-desktop);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .logoImg {
+    content: var(--image-logo-desktop2x);
+  }
+}
+
+.burgerIcon {
+  width: 32px;
+  height: 26px;
+  color: var(--color-green);
+  cursor: pointer;
+}
