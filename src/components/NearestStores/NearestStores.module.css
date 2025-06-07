@@ -15,3 +15,25 @@
   width: 351px;
   margin-bottom: 64px;
 }
+
+.nearestStoresList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .nearestStoresList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nearestStoresList {
+    row-gap: 38px;
+    column-gap: 36px;
+  }
+}

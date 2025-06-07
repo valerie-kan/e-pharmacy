@@ -1,10 +1,11 @@
-.offersList {
+.promoList {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 4px;
 }
 
-.offerItem {
+.promoItem {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -35,14 +36,14 @@
   color: var(--color-green);
 }
 
-.offerTtl,
+.promoTtl,
 .discount {
   font-weight: 500;
   line-height: 140%;
   color: var(--secondary-color-bl);
 }
 
-.offerTtl {
+.promoTtl {
   font-size: 16px;
 }
 
@@ -64,13 +65,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .offersList {
+  .promoList {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 28px;
+    margin-inline: 17px;
   }
 
-  .offerItem {
+  .promoItem {
     width: calc((100% - 28px) / 2);
   }
 
@@ -80,7 +82,7 @@
     font-size: 24px;
   }
 
-  .offerTtl {
+  .promoTtl {
     font-size: 20px;
   }
 
@@ -94,11 +96,13 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .offersList {
+  .promoList {
+    width: 1019px;
     flex-wrap: no-wrap;
+    margin-inline: 0;
   }
 
-  .offerItem {
+  .promoItem {
     width: calc((100% - 28px * 2) / 3);
   }
 }

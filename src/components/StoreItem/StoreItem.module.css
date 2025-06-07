@@ -3,8 +3,7 @@
   border-radius: 27px;
   background-color: var(--color-light-green);
   padding: 40px;
-  width: 344px;
-  height: 232px;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -13,4 +12,110 @@
   position: absolute;
   bottom: -20px;
   right: -100px;
+}
+
+.storeName {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--primary-color-bl);
+  margin-bottom: 32px;
+  width: 123px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.locationWrapper,
+.phoneWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.locationWrapper {
+  margin-bottom: 18px;
+}
+
+.mapIcon,
+.phoneIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.address,
+.phoneNumber {
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--color-gray-header);
+  width: 116px;
+}
+
+.addInfo {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.ratingWrapper {
+  display: flex;
+  gap: 6px;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+}
+
+.status {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: rgba(232, 80, 80, 0.1);
+}
+
+.openStatus {
+  color: var(--color-green);
+  background-color: rgba(89, 177, 122, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .nearestItem {
+    width: calc((100% - 16px) / 2);
+  }
+
+  .storeName {
+    font-size: 20px;
+    width: 140px;
+    margin-bottom: 40px;
+  }
+
+  .locationWrapper {
+    margin-bottom: 14px;
+  }
+
+  .address,
+  .phoneNumber {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nearestItem {
+    width: calc((100% - 36px * 2) / 3);
+  }
 }

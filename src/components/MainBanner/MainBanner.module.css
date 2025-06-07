@@ -1,11 +1,12 @@
 .heroWrapper {
   width: 100%;
+  margin-inline: auto;
   height: 728px;
   display: flex;
   align-items: center;
   padding-inline: 20px 24px;
   background: var(--color-green) var(--bg-image-tablets) no-repeat left;
-  background-size: 375px 312px;
+  background-size: 430px;
 }
 
 .textWrapper {

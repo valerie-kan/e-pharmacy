@@ -1,14 +1,14 @@
-import Hero from "../components/Hero/Hero";
+import MainBanner from "../components/MainBanner/MainBanner";
 import NearestStores from "../components/NearestStores/NearestStores";
-import Offers from "../components/Offers/Offers";
+import PromoBanners from "../components/PromoBanners/PromoBanners";
 
 const HomePage = () => {
   return (
-    <div>
-      <Hero />
-      <Offers />
+    <>
+      <MainBanner />
+      <PromoBanners />
       <NearestStores />
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
-import css from "./Hero.module.css";
+import css from "./MainBanner.module.css";
 
-const Hero = () => {
+const MainBanner = () => {
   return (
     <div className={css.heroWrapper}>
       <div className={css.textWrapper}>
@@ -13,4 +13,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default MainBanner;

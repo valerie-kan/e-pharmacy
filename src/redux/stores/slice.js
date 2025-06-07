@@ -19,7 +19,7 @@ const nearestStoresSlice = createSlice({
       .addCase(getNearest.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.nearestShops = payload.data;
+        state.nearestStores = payload.data;
         console.log(payload.data);
       })
       .addCase(getNearest.rejected, (state, { payload }) => {
