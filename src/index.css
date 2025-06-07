@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 
-:root {
+#root {
   max-width: 320px;
+  margin: 0 auto;
 
   --primary-color-bl: #1d1e21;
   --secondary-color-bl: #252539;
@@ -19,10 +20,16 @@
   --color-light-green: #e7f1ed;
   --bg-white: #f1f1f1;
 
-  --image-logo-mobile: url(./assets/images/logo-mobile.png);
-  --image-logo-mobile2x: url(./assets/images/logo-mobile@2x.png);
-  --image-logo-desktop: url(./assets/images/logo-desktop.png);
-  --image-logo-desktop2x: url(./assets/images/logo-desktop@2x.png);
+  --image-logo-mobile-green: url(./assets/images/logo-mobile-green.png);
+  --image-logo-mobile-green2x: url(./assets/images/logo-mobile-green@2x.png);
+  --image-logo-desktop-green: url(./assets/images/logo-desktop-green.png);
+  --image-logo-desktop-green2x: url(./assets/images/logo-desktop-green@2x.png);
+
+  --image-logo-mobile-white: url(./assets/images/logo-mobile-white.png);
+  --image-logo-mobile-white2x: url(./assets/images/logo-mobile-white@2x.png);
+  --image-logo-desktop-white: url(./assets/images/logo-desktop-white.png);
+  --image-logo-desktop-white2x: url(./assets/images/logo-desktop-white@2x.png);
+
   --image-hero: url(./assets/images/hero.png);
   --image-hero2x: url(./assets/images/hero@2x.png);
   --bg-image-round-pill: url(./assets/images/round-pill.png);

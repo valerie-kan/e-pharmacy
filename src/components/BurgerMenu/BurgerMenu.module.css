@@ -34,3 +34,16 @@
 .closeIcon:hover {
   color: var(--color-gray-border);
 }
+
+@media screen and (min-width: 768px) {
+  .modal {
+    left: 57%;
+    width: 43%;
+    padding-block: 64px;
+  }
+
+  .closeIcon {
+    top: 39px;
+    right: 32px;
+  }
+}

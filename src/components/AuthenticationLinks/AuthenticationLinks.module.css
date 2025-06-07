@@ -5,7 +5,8 @@
   gap: 14px;
 }
 
-.registerLink {
+.registerLink,
+.logoutBtn {
   font-size: 14px;
   line-height: 100%;
   color: var(--bg-white);
@@ -20,9 +21,16 @@
   color: var(--color-green);
 }
 
-.loginLink {
+.logoutBtn {
   font-size: 14px;
   line-height: 100%;
   color: var(--bg-white);
   text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .authLinks {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

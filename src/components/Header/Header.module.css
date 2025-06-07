@@ -1,36 +1,61 @@
 .headerWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   max-width: 335px;
   padding: 22px 20px;
 }
 
+.headerGreen {
+  background-color: var(--color-green);
+}
+
+.logoLink {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .logoImg {
-  width: 135px;
+  width: 32px;
   height: 32px;
-  content: var(--image-logo-mobile);
+  content: var(--image-logo-mobile-green);
+}
+
+.headerGreen .logoImg {
+  content: var(--image-logo-mobile-white);
+}
+
+.logoSpan {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  color: var(--primary-color-bl);
+}
+
+.headerGreen .logoSpan {
+  color: var(--color-white);
+}
+
+.logoLink:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-resolution: 192dpi) {
   .logoImg {
-    content: var(--image-logo-mobile2x);
+    content: var(--image-logo-mobile-green2x);
+  }
+
+  .headerGreen .logoImg {
+    content: var(--image-logo-mobile-white2x);
   }
 }
 
-@media screen and (min-width: 768px) {
-  .logoImg {
-    width: 172px;
-    height: 44px;
-    content: var(--image-logo-desktop);
-  }
-}
-
-@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
-  .logoImg {
-    content: var(--image-logo-desktop2x);
-  }
+.userPartWrpr {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .burgerIcon {
@@ -38,4 +63,62 @@
   height: 26px;
   color: var(--color-green);
   cursor: pointer;
+}
+
+.burgerWhite {
+  color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+  .headerWrapper {
+    max-width: none;
+    width: 100%;
+    padding: 28px 32px;
+  }
+
+  .logoLink {
+    gap: 14px;
+  }
+
+  .logoImg {
+    width: 44px;
+    height: 44px;
+    content: var(--image-logo-desktop-green);
+  }
+
+  .headerGreen .logoImg {
+    content: var(--image-logo-desktop-white);
+  }
+
+  .logoSpan {
+    font-size: 20px;
+  }
+
+  .userPartWrpr {
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .logoImg {
+    content: var(--image-logo-desktop-green2x);
+  }
+
+  .headerGreen .logoImg {
+    content: var(--image-logo-desktop-white2x);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .headerWrapper {
+    width: 100%;
+  }
+
+  .userPartWrpr {
+    gap: 12px;
+  }
+
+  .burgerIcon {
+    display: none;
+  }
 }

@@ -28,3 +28,9 @@
   background-color: var(--color-green);
   color: var(--color-white);
 }
+
+@media screen and (min-width: 1440px) {
+  .navLinksWrapper {
+    flex-direction: row;
+  }
+}

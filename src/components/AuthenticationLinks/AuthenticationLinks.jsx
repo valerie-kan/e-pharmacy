@@ -11,6 +11,7 @@ const AuthenticationLinks = () => {
       <Link className={css.loginLink} to="/login">
         Login
       </Link>
+      <button className={css.logoutBtn}>Log out</button>
     </div>
   );
 };
