@@ -4,6 +4,90 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f8fa;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+a {
+  font-size: 12px;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+section {
+  margin: 60px 20px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: var(--main-color-bl);
+}
+
+p {
+  font-size: 12px;
+  line-height: 150%;
+}
+
+button {
+  border-radius: 60px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  font-family: inherit;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  cursor: pointer;
+  transition: 250ms;
+}
+
+button:hover {
+  color: #3f945f;
+}
+
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
 #root {
   min-width: 320px;
   max-width: 375px;
@@ -55,87 +139,3 @@
     max-width: 1440px;
   }
 }
-
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--color-footer);
-  margin: 0 auto;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-img {
-  display: block;
-}
-
-a {
-  font-size: 12px;
-  line-height: 150%;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
-section {
-  margin-block: 60px;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 114%;
-  text-align: center;
-  color: var(--main-color-bl);
-}
-
-p {
-  font-size: 12px;
-  line-height: 150%;
-}
-
-button {
-  border-radius: 60px;
-  border: 1px solid transparent;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 100%;
-  font-family: inherit;
-  color: var(--color-white);
-  background-color: var(--color-green);
-  cursor: pointer;
-  transition: 250ms;
-}
-
-button:hover {
-  color: #3f945f;
-}
-
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
