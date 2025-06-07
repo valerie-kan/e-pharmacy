@@ -2,7 +2,7 @@ import css from "./StoreItem.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
 
-const StoreItem = () => {
+const StoreItem = ({ store }) => {
   return (
     <li className={css.nearestItem}>
       <svg className={css.blocksIcon}>
