@@ -1,4 +1,5 @@
 import Hero from "../components/Hero/Hero";
+import NearestStore from "../components/NearestStore/NearestStore";
 import Offers from "../components/Offers/Offers";
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <Offers />
+      <NearestStore />
     </div>
   );
 };

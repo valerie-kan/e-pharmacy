@@ -1,0 +1,16 @@
+.nearestItem {
+  border: 1.15px solid var(--bg-white);
+  border-radius: 27px;
+  background-color: var(--color-light-green);
+  padding: 40px;
+  width: 344px;
+  height: 232px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blocksIcon {
+  position: absolute;
+  bottom: -20px;
+  right: -100px;
+}

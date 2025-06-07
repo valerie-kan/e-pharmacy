@@ -1,0 +1,17 @@
+.sectionTtl {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  color: var(--primary-color-bl);
+  margin-inline: auto;
+  margin-bottom: 14px;
+}
+
+.sectionText {
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--color-gray-header);
+  margin-inline: auto;
+  width: 351px;
+  margin-bottom: 64px;
+}
