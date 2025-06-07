@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 335px;
+  max-width: 375px;
   padding: 22px 20px;
 }
 
@@ -72,7 +72,6 @@
 @media screen and (min-width: 768px) {
   .headerWrapper {
     max-width: none;
-    width: 100%;
     padding: 28px 32px;
   }
 
@@ -111,7 +110,7 @@
 
 @media screen and (min-width: 1440px) {
   .headerWrapper {
-    width: 100%;
+    padding-inline: 128px;
   }
 
   .userPartWrpr {

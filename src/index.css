@@ -5,7 +5,8 @@
 }
 
 #root {
-  max-width: 320px;
+  min-width: 320px;
+  max-width: 375px;
   margin: 0 auto;
 
   --primary-color-bl: #1d1e21;
@@ -98,6 +99,10 @@ a {
 a:hover,
 a:focus {
   text-decoration: underline;
+}
+
+section {
+  margin-block: 60px;
 }
 
 h2 {

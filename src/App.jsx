@@ -5,13 +5,15 @@ import { Toaster } from "react-hot-toast";
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
 
+import HomePage from "./pages/HomePage";
+
 function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Toaster />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          {/* <Route index element={<HomePage />} /> */}
+          <Route index element={<HomePage />} />
         </Route>
       </Routes>
     </Suspense>
