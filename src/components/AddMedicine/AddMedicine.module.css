@@ -1,0 +1,110 @@
+.sectionWrapper {
+  padding: 20px;
+  border-radius: 32px;
+  background: var(--color-green);
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.sectionInfoWrapper {
+  padding-block: 20px;
+}
+
+.sectionTtl {
+  font-size: 28px;
+  line-height: 114%;
+  letter-spacing: -0.01em;
+  color: var(--bg-white);
+  text-align: start;
+  width: 285px;
+  margin-bottom: 20px;
+}
+
+.sectionText {
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--bg-white);
+  margin-bottom: 40px;
+}
+
+.sectionBtn {
+  border-color: rgba(241, 241, 241, 0.5);
+  padding: 13px 32px;
+}
+
+.buyLink {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+}
+
+.image {
+  width: 294px;
+  height: 335px;
+  content: var(--image-add-medicine-mobile);
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .image {
+    content: var(--image-add-medicine-mobile2x);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sectionWrapper {
+    padding: 40px 48px;
+  }
+
+  .sectionInfoWrapper {
+    padding-block: 64px;
+  }
+
+  .sectionTtl {
+    font-size: 48px;
+    line-height: 115%;
+    width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .sectionText {
+    font-size: 16px;
+    line-height: 125%;
+    width: 485px;
+  }
+
+  .sectionBtn {
+    padding-inline: 50px;
+  }
+
+  .image {
+    width: 608px;
+    height: 406px;
+    content: var(--image-add-medicine-desktop);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .image {
+    content: var(--image-add-medicine-desktop2x);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionWrapper {
+    padding-inline: 80px;
+    flex-direction: row;
+  }
+
+  .sectionTtl {
+    width: 480px;
+  }
+
+  .sectionBtn:hover {
+    border-color: transparent;
+    background-color: var(--color-green-hover);
+    color: var(--color-white);
+  }
+}

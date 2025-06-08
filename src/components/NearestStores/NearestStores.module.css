@@ -1,18 +1,19 @@
 .sectionTtl {
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 120%;
+  font-size: 28px;
+  line-height: 114%;
+  width: 291px;
   color: var(--primary-color-bl);
   margin-inline: auto;
   margin-bottom: 14px;
 }
 
 .sectionText {
-  font-size: 16px;
-  line-height: 125%;
+  font-size: 14px;
+  line-height: 129%;
   color: var(--color-gray-header);
+  width: 285px;
+  display: block;
   margin-inline: auto;
-  width: 351px;
   margin-bottom: 64px;
 }
 
@@ -23,6 +24,18 @@
 }
 
 @media screen and (min-width: 768px) {
+  .sectionTtl {
+    font-size: 40px;
+    line-height: 120%;
+    width: 552px;
+  }
+
+  .sectionText {
+    font-size: 16px;
+    line-height: 125%;
+    width: 351px;
+  }
+
   .nearestStoresList {
     flex-direction: row;
     flex-wrap: wrap;

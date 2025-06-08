@@ -44,18 +44,13 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
 section {
-  margin: 60px 20px;
+  margin: 40px 20px;
 }
 
 @media screen and (min-width: 768px) {
   section {
-    margin-inline: 32px;
+    margin: 60px 32px;
   }
 }
 
@@ -67,8 +62,6 @@ section {
 
 h2 {
   font-weight: 600;
-  font-size: 28px;
-  line-height: 114%;
   text-align: center;
   color: var(--main-color-bl);
 }
@@ -92,7 +85,7 @@ button {
 }
 
 button:hover {
-  color: #3f945f;
+  color: var(--color-green-hover);
 }
 
 /* button:focus,
@@ -114,6 +107,7 @@ button:focus-visible {
   --color-footer: #f7f8fa;
   --color-red: #e85050;
   --color-green: #59b17a;
+  --color-green-hover: #3f945f;
   --color-light-green: #e7f1ed;
   --bg-white: #f1f1f1;
 
@@ -127,8 +121,11 @@ button:focus-visible {
   --image-logo-desktop-white: url(./assets/images/logo-desktop-white.png);
   --image-logo-desktop-white2x: url(./assets/images/logo-desktop-white@2x.png);
 
-  --image-hero: url(./assets/images/hero.png);
-  --image-hero2x: url(./assets/images/hero@2x.png);
+  --image-add-medicine-mobile: url(./assets/images/add-medicine-mobile.png);
+  --image-add-medicine-mobile2x: url(./assets/images/add-medicine-mobile@2x.png);
+  --image-add-medicine-desktop: url(./assets/images/add-medicine-desktop.png);
+  --image-add-medicine-desktop2x: url(./assets/images/add-medicine-desktop@2x.png);
+
   --bg-image-round-pill: url(./assets/images/round-pill.png);
   --bg-image-tablets: url(./assets/images/tablets.png);
   --image-stars: url(./assets/images/stars.png);

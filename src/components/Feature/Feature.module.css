@@ -1,0 +1,46 @@
+.featureWrapper {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.featureItem {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.itemIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.featureText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-bl);
+}
+
+@media screen and (min-width: 768px) {
+  .featureWrapper {
+    margin-block: 4px 60px;
+    gap: 32px;
+  }
+
+  .featureText {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .featureWrapper {
+    gap: 48px;
+  }
+}
