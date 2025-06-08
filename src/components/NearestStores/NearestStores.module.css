@@ -9,9 +9,7 @@
 
 .sectionText {
   color: var(--color-gray-header);
-  width: 285px;
-  display: block;
-  margin-inline: auto;
+  text-align: center;
   margin-bottom: 64px;
 }
 
@@ -26,10 +24,6 @@
     font-size: 40px;
     line-height: 120%;
     width: 552px;
-  }
-
-  .sectionText {
-    width: 351px;
   }
 
   .nearestStoresList {

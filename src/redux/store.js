@@ -16,6 +16,7 @@ import {
 // import libraryReducer from "./library/slice";
 // import readingReducer from "./reading/slice";
 import nearestStoresReducer from "./stores/slice";
+import reviewsReducer from "./reviews/slice";
 
 // const persistAuthConfig = {
 //   key: "auth",
@@ -27,6 +28,7 @@ export const store = configureStore({
   reducer: {
     // auth: persistReducer(persistAuthConfig, authReducer),
     nearestStores: nearestStoresReducer,
+    reviews: reviewsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
