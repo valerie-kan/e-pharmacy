@@ -16,10 +16,6 @@
   align-items: center;
 }
 
-.logoLink:hover {
-  transform: scale(1.05);
-}
-
 .logoImg {
   width: 32px;
   height: 32px;

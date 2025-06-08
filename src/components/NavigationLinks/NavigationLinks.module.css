@@ -24,10 +24,7 @@
   display: block;
 }
 
-.link:hover {
-  text-decoration: underline;
-}
-
+.link:hover,
 .active {
   background-color: var(--color-green);
   color: var(--color-white);
