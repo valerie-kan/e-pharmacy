@@ -67,8 +67,16 @@ h2 {
 }
 
 p {
-  font-size: 12px;
-  line-height: 150%;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--color-gray-header);
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 16px;
+    line-height: 125%;
+  }
 }
 
 button {

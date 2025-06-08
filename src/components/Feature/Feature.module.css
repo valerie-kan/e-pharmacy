@@ -21,8 +21,6 @@
 
 .featureText {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 129%;
   letter-spacing: -0.02em;
   color: var(--primary-color-bl);
 }
@@ -31,11 +29,6 @@
   .featureWrapper {
     margin-block: 4px 60px;
     gap: 32px;
-  }
-
-  .featureText {
-    font-size: 16px;
-    line-height: 125%;
   }
 }
 

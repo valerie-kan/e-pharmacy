@@ -22,8 +22,6 @@
 }
 
 .sectionText {
-  font-size: 14px;
-  line-height: 129%;
   color: var(--bg-white);
   margin-bottom: 40px;
 }
@@ -70,8 +68,6 @@
   }
 
   .sectionText {
-    font-size: 16px;
-    line-height: 125%;
     width: 485px;
   }
 
