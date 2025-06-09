@@ -1,3 +1,5 @@
-export const selectNearestStores = (state) => state.nearestStores.nearestStores;
+export const selectAllStores = (state) => state.stores.stores;
 
-export const selectisLoading = (state) => state.nearestStores.isLoading;
+export const selectNearestStores = (state) => state.stores.nearestStores;
+
+export const selectisLoading = (state) => state.stores.isLoading;

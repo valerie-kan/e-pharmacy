@@ -5,6 +5,9 @@ import css from "./Footer.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 
 const Footer = () => {
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <section className={css.sectionWrapper}>
       <div className={css.mainInfo}>
@@ -25,17 +28,29 @@ const Footer = () => {
         <div className={css.navAndSocialWrapper}>
           <ul className={css.navLinksList}>
             <li>
-              <NavLink to="/" className={css.navLink}>
+              <NavLink
+                to="/"
+                className={css.navLink}
+                onClick={() => handleLinkClick()}
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/medicine-store" className={css.navLink}>
+              <NavLink
+                to="/medicine-store"
+                className={css.navLink}
+                onClick={() => handleLinkClick()}
+              >
                 Medicine store
               </NavLink>
             </li>
             <li>
-              <NavLink to="/medicine" className={css.navLink}>
+              <NavLink
+                to="/medicine"
+                className={css.navLink}
+                onClick={() => handleLinkClick()}
+              >
                 Medicine
               </NavLink>
             </li>

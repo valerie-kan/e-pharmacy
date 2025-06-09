@@ -1,12 +1,13 @@
+import clsx from "clsx";
+
 import css from "./StoreItem.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
-import clsx from "clsx";
 
-const StoreItem = ({ store }) => {
+const StoreItem = ({ store, children, isStorePage }) => {
   const isOpen = Boolean(store.status === "Open");
   return (
-    <li className={css.nearestItem}>
+    <li className={clsx(css.storeItem, isStorePage && css.storePageItem)}>
       <p className={css.storeName}>{store.name}</p>
       <div className={css.locationWrapper}>
         <svg className={css.mapIcon}>
@@ -20,7 +21,8 @@ const StoreItem = ({ store }) => {
         </svg>
         <p className={css.phoneNumber}>{store.phone}</p>
       </div>
-      <div className={css.addInfo}>
+      {children}
+      <div className={clsx(css.addInfo, isStorePage && css.storePageAddInfo)}>
         <div className={css.ratingWrapper}>
           <svg className={css.starIcon}>
             <use href={`${sprite}#icon-star`} />
@@ -31,7 +33,9 @@ const StoreItem = ({ store }) => {
           {store.status}
         </div>
       </div>
-      <svg className={css.blocksIcon}>
+      <svg
+        className={clsx(css.blocksIcon, isStorePage && css.storePageBlocksIcon)}
+      >
         <use href={`${sprite}#icon-block-elements`} />
       </svg>
     </li>

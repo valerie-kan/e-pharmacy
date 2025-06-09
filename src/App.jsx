@@ -6,6 +6,7 @@ import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
 
 import HomePage from "./pages/HomePage";
+import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="/medicine-store" element={<MedicineStorePage />} />
         </Route>
       </Routes>
     </Suspense>

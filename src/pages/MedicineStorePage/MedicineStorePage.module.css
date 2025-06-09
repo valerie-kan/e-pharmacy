@@ -1,0 +1,62 @@
+.sectionWrapper {
+  margin-top: 64px;
+}
+
+.sectionTtl {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: var(--primary-color-bl);
+  margin-bottom: 40px;
+}
+
+.storesList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.storeBtn {
+  display: block;
+  margin-top: 36px;
+  padding: 10px;
+  text-align: center;
+  width: 102px;
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  border-radius: 60px;
+  border: 1px solid transparent;
+  background-color: var(--color-green);
+}
+
+.storeBtn:hover {
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  background-color: var(--color-footer);
+  color: var(--color-green);
+}
+
+@media screen and (min-width: 768px) {
+  .sectionWrapper {
+    margin-top: 80px;
+  }
+
+  .sectionTtl {
+    margin-bottom: 32px;
+  }
+
+  .storesList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .storesList {
+    column-gap: 20px;
+    row-gap: 40px;
+  }
+}

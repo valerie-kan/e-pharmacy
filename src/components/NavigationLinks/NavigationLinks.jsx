@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import css from "./NavigationLinks.module.css";
 
-const NavigationLinks = () => {
+const NavigationLinks = ({ setisOpen }) => {
   const linkCls = ({ isActive }) => clsx(css.link, isActive && css.active);
 
   const links = [
@@ -17,7 +17,11 @@ const NavigationLinks = () => {
     <div className={css.navLinksWrapper}>
       {links.map((link) => (
         <div className={css.linkWrapper} key={link.to}>
-          <NavLink to={link.to} className={linkCls}>
+          <NavLink
+            to={link.to}
+            className={linkCls}
+            onClick={() => setisOpen(false)}
+          >
             {link.label}
           </NavLink>
         </div>
