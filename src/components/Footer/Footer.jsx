@@ -2,12 +2,19 @@ import { Link, NavLink } from "react-router-dom";
 
 import css from "./Footer.module.css";
 
-import sprite from "../../assets/icons/sprite.svg";
+import SocialLinks from "../SocialLinks/SocialLinks";
 
 const Footer = () => {
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/medicine-store", label: "Medicine store" },
+    { to: "/medicine", label: "Medicine" },
+  ];
+
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <section className={css.sectionWrapper}>
       <div className={css.mainInfo}>
@@ -27,63 +34,19 @@ const Footer = () => {
         </div>
         <div className={css.navAndSocialWrapper}>
           <ul className={css.navLinksList}>
-            <li>
-              <NavLink
-                to="/"
-                className={css.navLink}
-                onClick={() => handleLinkClick()}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/medicine-store"
-                className={css.navLink}
-                onClick={() => handleLinkClick()}
-              >
-                Medicine store
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/medicine"
-                className={css.navLink}
-                onClick={() => handleLinkClick()}
-              >
-                Medicine
-              </NavLink>
-            </li>
+            {links.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={css.navLink}
+                  onClick={() => handleLinkClick()}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
-          <div className={css.socialLinksList}>
-            <a
-              className={css.socialLink}
-              href="https://www.facebook.com/goITclub/ "
-              target="_blank"
-            >
-              <svg className={css.linkIcon}>
-                <use href={`${sprite}#icon-fb`} />
-              </svg>
-            </a>
-            <a
-              className={css.socialLink}
-              href="https://www.instagram.com/goitclub/"
-              target="_blank"
-            >
-              <svg className={css.linkIcon}>
-                <use href={`${sprite}#icon-instagram`} />
-              </svg>
-            </a>
-            <a
-              className={css.socialLink}
-              href="https://www.youtube.com/c/GoIT"
-              target="_blank"
-            >
-              <svg className={css.linkIcon}>
-                <use href={`${sprite}#icon-youTube`} />
-              </svg>
-            </a>
-          </div>
+          <SocialLinks />
         </div>
       </div>
       <div className={css.footerBottom}>

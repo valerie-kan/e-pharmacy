@@ -60,10 +60,6 @@
   text-decoration: underline;
 }
 
-.socialLinksList {
-  display: none;
-}
-
 .footerBottom {
   display: flex;
   flex-wrap: wrap;
@@ -131,28 +127,6 @@ a.bottomText:hover {
   .navLink {
     font-size: 16px;
     line-height: 125%;
-  }
-
-  .socialLinksList {
-    display: flex;
-    gap: 12px;
-  }
-
-  .socialLink {
-    border: 1px solid rgba(247, 248, 250, 0.1);
-    border-radius: 10px;
-    padding: 8px;
-    width: 44px;
-    height: 44px;
-  }
-
-  .socialLink:hover {
-    border-color: rgba(247, 248, 250, 0.5);
-  }
-
-  .linkIcon {
-    width: 28px;
-    height: 28px;
   }
 
   .footerBottom {
