@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
 import css from "../LoginForm/LoginForm.module.css";
 
 import { RegisterSchema } from "../../utils/validationSchemas";
+import { SuccessToast } from "../../utils/successToast.js";
+import { ErrorToast } from "../../utils/errorToast.js";
+
+import { registerUser } from "../../redux/auth/operations.js";
 
 import Input from "../Input/Input";
 
@@ -15,21 +21,33 @@ const RegisterForm = ({ isRegisterPage }) => {
     handleSubmit,
     formState: { errors, touchedFields },
   } = useForm({ resolver: yupResolver(RegisterSchema) });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(registerUser(data)).unwrap();
+      SuccessToast("You have been successfully registered");
+      navigate("/login");
+    } catch (e) {
+      ErrorToast(e.message);
+    }
+  };
 
   return (
     <form
       className={clsx(css.formWrapper, css.registerFormWrapper)}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className={clsx(css.inputsWrapper, css.registerInputsWrapper)}>
         <Input
-          isRegisterPage={isRegisterPage}
           id="username"
           type="text"
           register={register}
           errors={errors}
           placeholder="User Name"
           touchedFields={touchedFields}
+          isRegisterPage={isRegisterPage}
         />
         <Input
           isRegisterPage={isRegisterPage}
@@ -42,7 +60,7 @@ const RegisterForm = ({ isRegisterPage }) => {
         />
         <Input
           isRegisterPage={isRegisterPage}
-          id="phoneNumber"
+          id="phone"
           type="text"
           register={register}
           errors={errors}

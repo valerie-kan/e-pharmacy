@@ -11,10 +11,10 @@ const Input = ({
   touchedFields,
   isRegisterPage,
 }) => {
-  const isValid = touchedFields.type && !errors.type;
+  const isValid = touchedFields[id] && !errors[id];
 
   return (
-    <>
+    <div className={css.inputWrapper}>
       <input
         className={clsx(
           css.input,
@@ -27,7 +27,7 @@ const Input = ({
         {...register(id)}
       />
       {errors?.[id] && <p className={css.errMessage}>{errors[id].message}</p>}
-    </>
+    </div>
   );
 };
 

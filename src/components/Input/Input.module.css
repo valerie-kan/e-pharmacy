@@ -1,3 +1,9 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .input {
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
@@ -19,8 +25,18 @@
   border-color: var(--color-green);
 }
 
+.errMessage {
+  font-size: 9px;
+  color: var(--color-red);
+  margin-top: 1px;
+  margin-left: 8px;
+}
+
 @media screen and (min-width: 768px) {
   .registerInput {
     width: 280px;
+  }
+  .errMessage {
+    font-size: 12px;
   }
 }

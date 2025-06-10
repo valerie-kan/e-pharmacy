@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 // import storage from "redux-persist/lib/storage";
 
-// import authReducer from "./auth/slice";
+import authReducer from "./auth/slice";
 // import booksReducer from "./books/slice";
 // import libraryReducer from "./library/slice";
 // import readingReducer from "./reading/slice";
@@ -27,6 +27,7 @@ import reviewsReducer from "./reviews/slice";
 export const store = configureStore({
   reducer: {
     // auth: persistReducer(persistAuthConfig, authReducer),
+    auth: authReducer,
     stores: storesReducer,
     reviews: reviewsReducer,
   },
