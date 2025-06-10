@@ -28,8 +28,6 @@ export const login = createAsyncThunk(
     try {
       const { data } = await api.post("user/login", formData);
       setToken(data.token);
-      localStorage.setItem("refreshToken", data.refreshToken);
-      console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.response?.data || error.message);

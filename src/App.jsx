@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
+import RestrictedRoute from "./components/RestrictedRoute";
 
 import HomePage from "./pages/HomePage";
 import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
@@ -15,8 +16,14 @@ function App() {
     <Suspense fallback={<Loader />}>
       <Toaster />
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/login"
+          element={<RestrictedRoute component={<LoginPage />} />}
+        />
+        <Route
+          path="/register"
+          element={<RestrictedRoute component={<RegisterPage />} />}
+        />
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/medicine-store" element={<MedicineStorePage />} />
