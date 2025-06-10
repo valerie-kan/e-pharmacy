@@ -12,7 +12,7 @@ const featureList = [
 
 const Feature = () => {
   return (
-    <ul className={css.featureWrapper}>
+    <ul className={css.featureWrapper} id="features">
       {featureList.map((feature) => (
         <div className={css.featureItem} key={feature}>
           <svg className={css.itemIcon}>

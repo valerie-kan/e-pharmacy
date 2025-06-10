@@ -41,6 +41,10 @@
   color: var(--color-green);
 }
 
+.greenLink:hover {
+  color: var(--color-white);
+}
+
 @media screen and (min-width: 768px) {
   .authLinks {
     flex-direction: row;

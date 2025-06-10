@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import {
+  // getUser,
   login,
-  // logout,
+  logout,
+  // refreshUser,
   registerUser,
   setToken,
 } from "./operations";
@@ -50,7 +52,56 @@ const authSlice = createSlice({
       .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(logout.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isLoggedIn = false;
+        state.error = payload;
       });
+    // .addCase(refreshUser.pending, (state) => {
+    //   state.isLoading = true;
+    //   state.isRefreshing = true;
+    //   state.error = null;
+    // })
+    // .addCase(refreshUser.fulfilled, (state, { payload }) => {
+    //   state.isRefreshing = false;
+    //   state.isLoading = false;
+    //   state.isLoggedIn = true;
+    //   console.log("refresh payload:", payload);
+    //   state.token = payload.token;
+    // })
+    // .addCase(refreshUser.rejected, (state, { payload }) => {
+    //   state.isRefreshing = false;
+    //   state.isLoading = false;
+    //   state.isLoggedIn = false;
+    //   state.token = null;
+    //   state.error = payload;
+    // })
+    // .addCase(getUser.pending, (state) => {
+    //   state.isLoading = true;
+    //   state.isRefreshing = true;
+    //   state.error = null;
+    // })
+    // .addCase(getUser.fulfilled, (state, { payload }) => {
+    //   state.isRefreshing = false;
+    //   state.isLoading = false;
+    //   state.isLoggedIn = true;
+    //   state.user.name = payload.username;
+    //   state.user.email = payload.email;
+    // })
+    // .addCase(getUser.rejected, (state, { payload }) => {
+    //   state.isRefreshing = false;
+    //   state.isLoading = false;
+    //   state.isLoggedIn = false;
+    //   state.error = payload;
+    // });
   },
 });
 

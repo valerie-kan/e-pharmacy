@@ -10,18 +10,23 @@ const PromoBanners = () => {
   return (
     <section>
       <ul className={css.promoList}>
-        {promoBannersList.map((banner) => (
-          <li className={css.promoItem} key={banner.number}>
-            <div className={css.firstRow}>
-              <div className={css.numberWrapper}>{banner.number}</div>
-              <p className={css.promoTtl}>{banner.ttl}</p>
-            </div>
-            <div className={css.secondRow}>
-              <p className={css.discount}>{banner.discount}</p>
-              <a className={css.link}>{banner.link}</a>
-            </div>
-          </li>
-        ))}
+        {promoBannersList.map((banner) => {
+          const href = banner.link === "Read more" ? "#features" : "/medicine";
+          return (
+            <li className={css.promoItem} key={banner.number}>
+              <div className={css.firstRow}>
+                <div className={css.numberWrapper}>{banner.number}</div>
+                <p className={css.promoTtl}>{banner.ttl}</p>
+              </div>
+              <div className={css.secondRow}>
+                <p className={css.discount}>{banner.discount}</p>
+                <a href={href} className={css.link}>
+                  {banner.link}
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
