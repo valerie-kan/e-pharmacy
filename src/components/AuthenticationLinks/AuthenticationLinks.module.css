@@ -32,6 +32,15 @@
   text-decoration: none;
 }
 
+.greenLink {
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  color: var(--color-green);
+}
+
+.greenLogLink {
+  color: var(--color-green);
+}
+
 @media screen and (min-width: 768px) {
   .authLinks {
     flex-direction: row;

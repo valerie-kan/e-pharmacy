@@ -6,7 +6,8 @@ import NavigationLinks from "../NavigationLinks/NavigationLinks";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks";
 import { useEffect } from "react";
 
-const BurgerMenu = ({ modalOpen, setisOpen }) => {
+const BurgerMenu = ({ modalOpen, setisOpen, isLoggedIn }) => {
+  const isHomePage = true;
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = "hidden";
@@ -45,7 +46,7 @@ const BurgerMenu = ({ modalOpen, setisOpen }) => {
           <use href={`${sprite}#icon-x`} />
         </svg>
         <NavigationLinks setisOpen={setisOpen} />
-        <AuthenticationLinks />
+        <AuthenticationLinks isLoggedIn={isLoggedIn} isHomePage={isHomePage} />
       </div>
     </div>
   );
