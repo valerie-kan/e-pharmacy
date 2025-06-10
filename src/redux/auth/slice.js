@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import {
   login,
-  //   logout,
+  // logout,
   registerUser,
   setToken,
 } from "./operations";
@@ -28,14 +28,9 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(registerUser.fulfilled, (state /*, {payload}*/) => {
+      .addCase(registerUser.fulfilled, (state) => {
         state.isLoading = false;
         state.isLoggedIn = false;
-        // state.user.name = payload.name;
-        // state.user.email = payload.email;
-        // state.token = payload.token;
-
-        // setToken(payload.token);
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -48,15 +43,13 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isLoggedIn = true;
-        state.user.name = payload.name;
-        state.user.email = payload.email;
         state.token = payload.token;
 
         setToken(payload.token);
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = payload;
       });
   },
 });

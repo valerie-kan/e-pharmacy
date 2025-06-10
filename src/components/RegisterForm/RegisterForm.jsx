@@ -18,6 +18,7 @@ import Input from "../Input/Input";
 const RegisterForm = ({ isRegisterPage }) => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors, touchedFields },
   } = useForm({ resolver: yupResolver(RegisterSchema) });
@@ -28,6 +29,7 @@ const RegisterForm = ({ isRegisterPage }) => {
     try {
       await dispatch(registerUser(data)).unwrap();
       SuccessToast("You have been successfully registered");
+      reset();
       navigate("/login");
     } catch (e) {
       ErrorToast(e.message);
