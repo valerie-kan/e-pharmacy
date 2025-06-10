@@ -9,6 +9,7 @@ import RestrictedRoute from "./components/RestrictedRoute";
 
 import HomePage from "./pages/HomePage";
 import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
+import MedicinePage from "./pages/MedicinePage/MedicinePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/medicine-store" element={<MedicineStorePage />} />
+          <Route path="/medicine" element={<MedicinePage />} />
         </Route>
       </Routes>
     </Suspense>

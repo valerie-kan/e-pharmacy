@@ -1,0 +1,21 @@
+.sectionWrapper {
+  margin-top: 64px;
+}
+
+.sectionTtl {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: var(--primary-color-bl);
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .sectionWrapper {
+    margin-top: 80px;
+  }
+
+  .sectionTtl {
+    margin-bottom: 32px;
+  }
+}
