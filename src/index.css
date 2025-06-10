@@ -83,7 +83,7 @@ p {
 
 button {
   border-radius: 60px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(241, 241, 241, 0.5);
   font-weight: 500;
   font-size: 14px;
   line-height: 100%;
@@ -95,13 +95,9 @@ button {
 }
 
 button:hover {
-  color: var(--color-green-hover);
+  border-color: transparent;
+  background-color: var(--color-green-hover);
 }
-
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 #root {
   min-width: 320px;

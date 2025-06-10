@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import css from "./AuthTemplate.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
+import clsx from "clsx";
 
-const AuthTemplate = ({ children }) => {
+const AuthTemplate = ({ children, isRegisterPage }) => {
   return (
     <section className={css.authWrapper}>
       <Link className={css.logoLink} to="/">
@@ -15,7 +16,12 @@ const AuthTemplate = ({ children }) => {
         />
         <span className={css.logoSpan}>E-Pharmacy</span>
       </Link>
-      <div className={css.contentWrapper}>
+      <div
+        className={clsx(
+          css.contentWrapper,
+          isRegisterPage && css.registerContentWrpr
+        )}
+      >
         <h2 className={css.authTtl}>
           Your medication, delivered Say goodbye to all{" "}
           <span className={css.ttlSpan}>your healthcare</span> worries with us

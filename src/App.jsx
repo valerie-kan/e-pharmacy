@@ -8,6 +8,7 @@ import Loader from "./components/Loader";
 import HomePage from "./pages/HomePage";
 import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -15,10 +16,7 @@ function App() {
       <Toaster />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        {/* <Route
-          path="/register"
-          element={<RestrictedRoute component={<RegisterPage />} />}
-        /> */}
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/medicine-store" element={<MedicineStorePage />} />

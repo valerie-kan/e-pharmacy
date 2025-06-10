@@ -17,15 +17,19 @@
 }
 
 .registerLink:hover {
-  background-color: var(--color-footer);
-  color: var(--color-green);
+  background-color: var(--color-green-hover);
+  border-color: transparent;
 }
 
-.logoutBtn {
+.loginLink {
   font-size: 14px;
   line-height: 100%;
   color: var(--bg-white);
   text-decoration: underline;
+}
+
+.loginLink:hover {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {

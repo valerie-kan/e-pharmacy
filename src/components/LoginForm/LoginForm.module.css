@@ -4,6 +4,10 @@
   gap: 128px;
 }
 
+.registerFormWrapper {
+  gap: 20px;
+}
+
 .inputsWrapper {
   display: flex;
   flex-direction: column;
@@ -39,7 +43,23 @@
     width: 323px;
   }
 
+  .registerFormWrapper {
+    width: 574px;
+  }
+
   .inputsWrapper {
     gap: 14px;
   }
+
+  .registerInputsWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .registerBtns {
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }

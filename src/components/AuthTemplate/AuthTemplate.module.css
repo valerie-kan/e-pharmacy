@@ -111,7 +111,7 @@
 @media screen and (min-width: 1440px) {
   .authWrapper {
     margin-inline: 0;
-    padding-inline: 100px;
+    padding-inline: 100px 98px;
   }
 
   .logoLink {
@@ -123,5 +123,9 @@
     align-items: flex-end;
     gap: 150px;
     padding-bottom: 262px;
+  }
+
+  .registerContentWrpr {
+    gap: 54px;
   }
 }

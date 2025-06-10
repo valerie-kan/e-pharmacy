@@ -100,7 +100,5 @@
 
   .sectionBtn:hover {
     border-color: transparent;
-    background-color: var(--color-green-hover);
-    color: var(--color-white);
   }
 }
