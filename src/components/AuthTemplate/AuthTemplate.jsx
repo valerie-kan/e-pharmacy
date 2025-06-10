@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 import css from "./AuthTemplate.module.css";
 
-const AuthTemplate = () => {
+import sprite from "../../assets/icons/sprite.svg";
+
+const AuthTemplate = ({ children }) => {
   return (
     <section className={css.authWrapper}>
       <Link className={css.logoLink} to="/">
@@ -13,10 +15,16 @@ const AuthTemplate = () => {
         />
         <span className={css.logoSpan}>E-Pharmacy</span>
       </Link>
-      <h2 className={css.authTtl}>
-        Your medication, delivered Say goodbye to all{" "}
-        <span className={css.ttlSpan}>your healthcare</span> worries with us
-      </h2>
+      <div className={css.contentWrapper}>
+        <h2 className={css.authTtl}>
+          Your medication, delivered Say goodbye to all{" "}
+          <span className={css.ttlSpan}>your healthcare</span> worries with us
+        </h2>
+        {children}
+      </div>
+      <svg className={css.blocksIcon}>
+        <use href={`${sprite}#icon-block-elements`} />
+      </svg>
     </section>
   );
 };

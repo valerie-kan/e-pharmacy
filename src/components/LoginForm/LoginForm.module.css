@@ -1,0 +1,45 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 13px;
+  line-height: 129%;
+}
+
+.link {
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .formWrapper {
+    gap: 62px;
+    width: 323px;
+  }
+
+  .inputsWrapper {
+    gap: 14px;
+  }
+}

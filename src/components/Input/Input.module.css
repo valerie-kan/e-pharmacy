@@ -1,0 +1,20 @@
+.input {
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  background-color: var(--color-white);
+  padding: 13px 18px;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.input::placeholder {
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.sucInput {
+  border-color: var(--color-green);
+}
