@@ -24,7 +24,7 @@ const RegisterForm = ({ isRegisterPage }) => {
       <div className={clsx(css.inputsWrapper, css.registerInputsWrapper)}>
         <Input
           isRegisterPage={isRegisterPage}
-          id="userName"
+          id="username"
           type="text"
           register={register}
           errors={errors}

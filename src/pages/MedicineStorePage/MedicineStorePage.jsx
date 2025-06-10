@@ -9,6 +9,8 @@ import { getAllStores } from "../../redux/stores/operations";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
 
+import { ErrorToast } from "../../utils/errorToast";
+
 import StoreItem from "../../components/StoreItem/StoreItem";
 import Loader from "../../components/Loader";
 
@@ -27,7 +29,7 @@ const MedicineStorePage = () => {
     try {
       dispatch(getAllStores()).unwrap();
     } catch (error) {
-      console.log(error.message);
+      ErrorToast(error.message);
     }
   }, [dispatch]);
 

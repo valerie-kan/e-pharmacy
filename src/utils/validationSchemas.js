@@ -14,7 +14,7 @@ export const LoginSchema = Yup.object({
 });
 
 export const RegisterSchema = Yup.object({
-  name: Yup.string().required("Name is required"),
+  username: Yup.string().required("Name is required"),
   email: Yup.string()
     .required("Email is required")
     .matches(emailRegexp, "Invalid email address"),

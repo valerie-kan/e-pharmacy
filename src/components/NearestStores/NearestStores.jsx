@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 
+import css from "./NearestStores.module.css";
+
 import { getNearest } from "../../redux/stores/operations";
 import {
   selectNearestStores,
   selectisLoading,
 } from "../../redux/stores/selectors";
 
-import css from "./NearestStores.module.css";
+import { ErrorToast } from "../../utils/errorToast";
 
 import StoreItem from "../StoreItem/StoreItem";
 import Loader from "../Loader";
@@ -22,7 +24,7 @@ const NearestStores = () => {
     try {
       dispatch(getNearest()).unwrap();
     } catch (error) {
-      console.log(error.message);
+      ErrorToast(error.message);
     }
   }, [dispatch]);
 

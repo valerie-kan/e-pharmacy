@@ -8,6 +8,8 @@ import { photoList } from "../../assets/images/index";
 import { selectReviews, selectisLoading } from "../../redux/reviews/selectors";
 import { getReviews } from "../../redux/reviews/operations";
 
+import { ErrorToast } from "../../utils/errorToast";
+
 import Loader from "../Loader";
 
 const Reviews = () => {
@@ -19,7 +21,7 @@ const Reviews = () => {
     try {
       dispatch(getReviews()).unwrap();
     } catch (error) {
-      console.log(error.message);
+      ErrorToast(error.message);
     }
   }, [dispatch]);
 
