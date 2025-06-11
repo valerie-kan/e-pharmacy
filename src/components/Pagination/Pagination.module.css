@@ -37,21 +37,18 @@
   height: 20px;
 }
 
-.lDisabled,
-.rDisabled {
+.disabled {
   cursor: auto;
   opacity: 100%;
   color: rgba(29, 30, 33, 0.5);
 }
 
-.lDisabled:hover,
-.rDisabled:hover {
+.disabled:hover {
   background-color: transparent;
   color: rgba(29, 30, 33, 0.5);
 }
 
-.ldisabled .arrowIcon,
-.rDisabled .arrowIcon {
+.disabled .arrowIcon {
   color: rgba(29, 30, 33, 0.5);
 }
 

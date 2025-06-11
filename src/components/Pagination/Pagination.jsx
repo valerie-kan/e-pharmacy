@@ -31,7 +31,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
   };
 
   const handleToLastClick = () => {
-    if (page > 1) {
+    if (page < totalPages) {
       toUp();
       return setPage(totalPages);
     }
@@ -41,7 +41,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
     <div className={css.paginationWrapper}>
       <div className={css.arrowsLeftCont}>
         <div
-          className={clsx(css.pageWrapper, page === 1 && css.lDisabled)}
+          className={clsx(css.pageWrapper, page === 1 && css.disabled)}
           onClick={handleToFirstClick}
         >
           <svg className={css.arrowIcon}>
@@ -49,7 +49,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
           </svg>
         </div>
         <div
-          className={clsx(css.pageWrapper, page === 1 && css.lDisabled)}
+          className={clsx(css.pageWrapper, page === 1 && css.disabled)}
           onClick={handleLeftClick}
         >
           <svg className={css.arrowIcon}>
@@ -77,7 +77,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
         <div
           className={clsx(
             css.pageWrapper,
-            page === totalPages && css.rDisabled,
+            page === totalPages && css.disabled,
             page > 2 && css.activePage
           )}
           onClick={handleRightClick}
@@ -87,10 +87,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
       </div>
       <div className={css.arrowsRightCont}>
         <div
-          className={clsx(
-            css.pageWrapper,
-            page === totalPages && css.rDisabled
-          )}
+          className={clsx(css.pageWrapper, page === totalPages && css.disabled)}
           onClick={handleRightClick}
         >
           <svg className={css.arrowIcon}>
@@ -98,10 +95,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
           </svg>
         </div>
         <div
-          className={clsx(
-            css.pageWrapper,
-            page === totalPages && css.rDisabled
-          )}
+          className={clsx(css.pageWrapper, page === totalPages && css.disabled)}
           onClick={handleToLastClick}
         >
           <svg className={css.arrowIcon}>
