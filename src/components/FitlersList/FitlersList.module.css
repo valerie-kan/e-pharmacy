@@ -17,6 +17,7 @@
   line-height: 150%;
   color: rgba(29, 30, 33, 0.4);
   width: 100%;
+  outline: none;
 }
 
 .searchInput::placeholder {
@@ -29,6 +30,7 @@
   right: 18px;
   width: 16px;
   height: 16px;
+  cursor: auto;
 }
 
 .filterBtn {

@@ -5,8 +5,6 @@ import { getProducts } from "./operations";
 const initialState = {
   products: [],
   totalPages: null,
-  // hasNextPage: null,
-  // hasPrevPage: null,
   isLoading: false,
   error: null,
 };
@@ -28,8 +26,8 @@ const productsSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.products = payload.data.items;
+        // console.log(payload.data);
         state.totalPages = payload.data.totalPages;
-        // state.hasNextPage = payload.hasNextPage;
       })
       .addCase(getProducts.rejected, (state, { payload }) => {
         state.isLoading = false;
