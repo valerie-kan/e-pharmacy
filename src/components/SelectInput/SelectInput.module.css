@@ -17,14 +17,10 @@
   cursor: pointer;
 }
 
-.arrow {
+.arrowIcon {
   width: 16px;
   height: 16px;
 }
-
-/* .arrow.open {
-  transform: rotate(180deg);
-} */
 
 .dropdown {
   position: absolute;
@@ -43,6 +39,10 @@
   line-height: 111%;
   color: rgba(18, 20, 23, 0.2);
   z-index: 10;
+}
+
+.selectItem {
+  cursor: pointer;
 }
 
 .option {

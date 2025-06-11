@@ -28,7 +28,6 @@ const productsSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.products = payload.data.items;
-        // console.log("payload:", payload.data);
         state.totalPages = payload.data.totalPages;
         // state.hasNextPage = payload.hasNextPage;
       })
