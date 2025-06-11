@@ -56,16 +56,20 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
             {products.map((product) => (
               <li className={css.prodItem} key={product._id}>
                 <div className={css.imgWrapper}>
-                  <img src={product.photo} alt="Product image" />
+                  <img
+                    className={css.image}
+                    src={product.photo}
+                    alt="Product image"
+                  />
                 </div>
                 <div className={css.productInfoWrapper}>
                   <div className={css.firstRowWrapper}>
                     <p className={css.productName}>{product.name}</p>
-                    <span className={css.price}>{product.price}</span>
+                    <span className={css.price}>৳ {product.price}</span>
                   </div>
                   <p className={css.supplier}>{product.suppliers}</p>
                   <div className={css.btnAndLinkWrapper}>
-                    <button className={css.productbtn}>Add to cart</button>
+                    <button className={css.productBtn}>Add to cart</button>
                     <a className={css.productLink} href="">
                       Details
                     </a>

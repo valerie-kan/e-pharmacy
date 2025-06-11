@@ -16,7 +16,7 @@
   font-size: 12px;
   line-height: 150%;
   color: rgba(29, 30, 33, 0.4);
-  width: 335px;
+  width: 100%;
 }
 
 .searchInput::placeholder {
@@ -47,4 +47,16 @@
 .filterIcon {
   width: 16px;
   height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .filtersWrapper {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .searchInput {
+    margin-left: 6px;
+    width: 224px;
+  }
 }

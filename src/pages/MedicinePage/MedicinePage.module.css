@@ -1,5 +1,8 @@
 .sectionWrapper {
   margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .sectionTtl {
@@ -7,15 +10,17 @@
   font-size: 28px;
   line-height: 114%;
   color: var(--primary-color-bl);
-  margin-bottom: 40px;
 }
 
 @media screen and (min-width: 768px) {
   .sectionWrapper {
     margin-top: 80px;
+    gap: 32px;
   }
+}
 
-  .sectionTtl {
-    margin-bottom: 32px;
+@media screen and (min-width: 1440px) {
+  .sectionWrapper {
+    gap: 40px;
   }
 }
