@@ -46,6 +46,10 @@ a {
   cursor: pointer;
 }
 
+svg {
+  cursor: pointer;
+}
+
 section {
   margin: 40px 20px;
 }

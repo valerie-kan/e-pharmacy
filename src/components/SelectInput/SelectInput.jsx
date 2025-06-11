@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import css from "./SelectInput.module.css";
@@ -6,13 +6,13 @@ import css from "./SelectInput.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 
 const SelectInput = ({
-  isOpen,
-  setIsOpen,
   selectedItem,
   setSelectedItem,
   selectName,
   filtersList,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const handleClickOutside = () => {
       setIsOpen(false);
@@ -38,7 +38,7 @@ const SelectInput = ({
           {selectName ? `${selectedItem}` : "Product category"}
         </div>
         <svg className={clsx(css.arrow, isOpen && css.open)}>
-          <use href={`${sprite}#icon-arrow-down`} />
+          <use href={`${sprite}#icon-arrow-${isOpen ? "up" : "down"}`} />
         </svg>
       </div>
       {isOpen && (

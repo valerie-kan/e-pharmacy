@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import css from "./FitlersList.module.css";
 
 import SelectInput from "../components/SelectInput/SelectInput";
@@ -8,7 +6,7 @@ import sprite from "../assets/icons/sprite.svg";
 
 const FitlersList = () => {
   return (
-    <div>
+    <div className={css.filtersWrapper}>
       <SelectInput />
       <div className={css.inputWrapper}>
         <input
@@ -16,10 +14,16 @@ const FitlersList = () => {
           type="text"
           placeholder="Search medicine"
         />
-        <svg className={clsx(css.searchIcon)}>
+        <svg className={css.searchIcon}>
           <use href={`${sprite}#icon-search`} />
         </svg>
       </div>
+      <button className={css.filterBtn} type="submit">
+        <svg className={css.filterIcon}>
+          <use href={`${sprite}#icon-filter`} />
+        </svg>
+        Filter
+      </button>
     </div>
   );
 };
