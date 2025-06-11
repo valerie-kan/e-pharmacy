@@ -43,6 +43,7 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     localStorage.removeItem("accessToken");
     return data;
   } catch (error) {
+    console.log(error.message);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });

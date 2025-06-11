@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
@@ -12,8 +12,10 @@ import { SuccessToast } from "../../utils/successToast.js";
 import { ErrorToast } from "../../utils/errorToast.js";
 
 import { registerUser } from "../../redux/auth/operations.js";
+import { selectIsLoading } from "../../redux/auth/selectors.js";
 
 import Input from "../Input/Input";
+import Loader from "../Loader";
 
 const RegisterForm = ({ isRegisterPage }) => {
   const {
@@ -24,6 +26,7 @@ const RegisterForm = ({ isRegisterPage }) => {
   } = useForm({ resolver: yupResolver(RegisterSchema) });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLoading = useSelector(selectIsLoading);
 
   const onSubmit = async (data) => {
     try {
@@ -79,6 +82,7 @@ const RegisterForm = ({ isRegisterPage }) => {
           touchedFields={touchedFields}
         />
       </div>
+      {isLoading && <Loader />}
       <div className={clsx(css.btnWrapper, css.registerBtns)}>
         <button className={css.submitBtn} type="submit">
           Register
