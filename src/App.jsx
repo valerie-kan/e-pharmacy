@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
 import RestrictedRoute from "./components/RestrictedRoute";
+// import ScrollToTop from "./components/ScrollToTop";
 
 import HomePage from "./pages/HomePage";
 import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
@@ -47,6 +48,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Toaster />
+      {/* <ScrollToTop /> */}
       <Routes>
         <Route
           path="/login"

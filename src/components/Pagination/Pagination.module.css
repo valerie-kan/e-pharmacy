@@ -1,0 +1,79 @@
+.paginationWrapper {
+  display: flex;
+  gap: 17px;
+  align-self: center;
+}
+
+.pageWrapper {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 1px solid rgba(29, 30, 33, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.pageWrapper:hover,
+.activePage {
+  background-color: var(--color-green-hover);
+  color: var(--color-white);
+}
+
+.arrowsLeftCont,
+.pagesCont,
+.arrowsRightCont {
+  display: flex;
+  gap: 4px;
+}
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.lDisabled,
+.rDisabled {
+  cursor: auto;
+  opacity: 100%;
+  color: rgba(29, 30, 33, 0.5);
+}
+
+.lDisabled:hover,
+.rDisabled:hover {
+  background-color: transparent;
+  color: rgba(29, 30, 33, 0.5);
+}
+
+.ldisabled .arrowIcon,
+.rDisabled .arrowIcon {
+  color: rgba(29, 30, 33, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .paginationWrapper {
+    gap: 24px;
+    font-size: 18px;
+    line-height: 122%;
+  }
+
+  .pageWrapper {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrowsLeftCont,
+  .arrowsRightCont {
+    gap: 8px;
+  }
+
+  .arrowIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
