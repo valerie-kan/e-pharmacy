@@ -9,12 +9,13 @@ import {
   selectTotalPages,
 } from "../../redux/products/selectors";
 import { clearProds } from "../../redux/products/slice";
-import { getProducts } from "../../redux/products/operations";
+import { getProducts, getProductById } from "../../redux/products/operations";
 
 import { ErrorToast } from "../../utils/errorToast";
 
 import Pagination from "../Pagination/Pagination";
 import Loader from "../Loader";
+import ProductItem from "../ProductItem/ProductItem";
 
 const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
   const dispatch = useDispatch();
@@ -46,6 +47,14 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [getPerPage, perPage, setPerPage]);
 
+  const onDetailsClick = async (id) => {
+    try {
+      await dispatch(getProductById(id)).unwrap();
+    } catch (error) {
+      ErrorToast(error.message);
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -54,28 +63,11 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
         <>
           <ul className={css.productsWrapper}>
             {products.map((product) => (
-              <li className={css.prodItem} key={product._id}>
-                <div className={css.imgWrapper}>
-                  <img
-                    className={css.image}
-                    src={product.photo}
-                    alt="Product image"
-                  />
-                </div>
-                <div className={css.productInfoWrapper}>
-                  <div className={css.firstRowWrapper}>
-                    <p className={css.productName}>{product.name}</p>
-                    <span className={css.price}>৳ {product.price}</span>
-                  </div>
-                  <p className={css.supplier}>{product.suppliers}</p>
-                  <div className={css.btnAndLinkWrapper}>
-                    <button className={css.productBtn}>Add to cart</button>
-                    <a className={css.productLink} href="">
-                      Details
-                    </a>
-                  </div>
-                </div>
-              </li>
+              <ProductItem
+                key={product._id}
+                product={product}
+                onDetailsClick={onDetailsClick}
+              />
             ))}
           </ul>
           {page < totalPages && (

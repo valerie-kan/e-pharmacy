@@ -13,6 +13,7 @@ import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
 import MedicinePage from "./pages/MedicinePage/MedicinePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 
 // import { selectIsRefreshing, selectToken } from "./redux/auth/selectors";
 // import { getUser, refreshUser, setToken } from "./redux/auth/operations";
@@ -62,6 +63,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/medicine-store" element={<MedicineStorePage />} />
           <Route path="/medicine" element={<MedicinePage />} />
+          <Route path="/medicine-details" element={<ProductDetailsPage />} />
         </Route>
       </Routes>
     </Suspense>

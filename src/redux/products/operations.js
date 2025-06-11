@@ -15,3 +15,15 @@ export const getProducts = createAsyncThunk(
     }
   }
 );
+
+export const getProductById = createAsyncThunk(
+  "products/getProductById",
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await api.get(`/products/${id}`);
+      return data;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
