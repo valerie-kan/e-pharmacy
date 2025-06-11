@@ -1,0 +1,43 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+import { getProducts } from "./operations";
+
+const initialState = {
+  products: [],
+  totalPages: null,
+  // hasNextPage: null,
+  // hasPrevPage: null,
+  isLoading: false,
+  error: null,
+};
+
+const productsSlice = createSlice({
+  name: "products",
+  initialState,
+  reducers: {
+    clearProds: (state) => {
+      state.products = [];
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProducts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getProducts.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.products = payload.data.items;
+        // console.log("payload:", payload.data);
+        state.totalPages = payload.data.totalPages;
+        // state.hasNextPage = payload.hasNextPage;
+      })
+      .addCase(getProducts.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      });
+  },
+});
+
+export default productsSlice.reducer;
+export const { clearProds } = productsSlice.actions;
