@@ -1,6 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 
 import css from "./Header.module.css";
@@ -12,21 +12,36 @@ import sprite from "../../assets/icons/sprite.svg";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
+import { getCart } from "../../redux/cart/operations";
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import UserHeader from "../UserHeader/UserHeader";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks";
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
+import { ErrorToast } from "../../utils/errorToast";
 
 const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const username = useSelector(selectUserName);
 
   const isHomePage = location.pathname === "/";
 
   const isDesktop = useMediaQuery("(min-width: 1440px)");
+
+  const handleCartClick = async () => {
+    try {
+      navigate("/cart");
+      const cart = await dispatch(getCart()).unwrap();
+      localStorage.setItem("cart", JSON.stringify(cart));
+      console.log("Successfully get a cart");
+    } catch (error) {
+      ErrorToast(error.message);
+    }
+  };
 
   return (
     <div className={clsx(css.headerWrapper, isHomePage && css.headerGreen)}>
@@ -37,7 +52,11 @@ const Header = () => {
       {isDesktop && <NavigationLinks />}
       <div className={css.userPartWrpr}>
         {isLoggedIn && (
-          <UserHeader isHomePage={isHomePage} username={username} />
+          <UserHeader
+            isHomePage={isHomePage}
+            username={username}
+            handleCartClick={handleCartClick}
+          />
         )}
         {isDesktop && (
           <AuthenticationLinks

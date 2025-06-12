@@ -1,0 +1,71 @@
+.formWrapper {
+  padding: 20px;
+  border-radius: 27px;
+  background-color: var(--color-white);
+}
+
+.subSection:not(:last-of-type) {
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+}
+
+.subSectTtl {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--main-color-bl);
+  margin-bottom: 12px;
+}
+
+.inputsWrapper {
+  margin-block: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputLabel {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+  margin-left: 18px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.paymentMethodSect,
+.orderDetailsSect {
+  margin-top: 40px;
+}
+
+.radioWrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.radioLabel {
+  display: flex;
+  gap: 8px;
+}
+
+.totalWrapper {
+  margin-block: 20px;
+  border-radius: 8px;
+  background-color: var(--color-light-green);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalSpan {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.submitBtn {
+  padding: 13px;
+  width: 141px;
+  margin-bottom: 20px;
+}

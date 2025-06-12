@@ -1,0 +1,28 @@
+.sectionWrapper {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sectionTtl {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: var(--primary-color-bl);
+}
+
+@media screen and (min-width: 768px) {
+  .sectionWrapper {
+    margin-top: 80px;
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionWrapper {
+    margin-top: 100px;
+    padding-inline: 32px;
+    gap: 40px;
+  }
+}

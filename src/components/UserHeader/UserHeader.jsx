@@ -1,11 +1,13 @@
+import { useState } from "react";
+
 import clsx from "clsx";
 
 import css from "./UserHeader.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
-import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
-const UserHeader = ({ isHomePage, username }) => {
+const UserHeader = ({ isHomePage, username, handleCartClick }) => {
   const getInitial = () => {
     return username ? username[0].toUpperCase() : "N";
   };
@@ -13,7 +15,7 @@ const UserHeader = ({ isHomePage, username }) => {
   return (
     <div className={css.userHeaderWrpr}>
       <div className={css.cartWrapper}>
-        <svg className={css.cartIcon}>
+        <svg className={css.cartIcon} onClick={handleCartClick}>
           <use href={`${sprite}#icon-shopping-cart`} />
         </svg>
         <div className={css.prodQuant}>{productQuant}</div>

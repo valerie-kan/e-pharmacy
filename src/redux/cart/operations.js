@@ -5,8 +5,8 @@ import { api } from "../../utils/api";
 export const getCart = createAsyncThunk("cart/getCart", async (_, thunkAPI) => {
   try {
     const { data } = await api.get("/cart");
-    console.log("cart", data);
-    return data;
+    // console.log("cart", data);
+    return data.data.items;
   } catch (error) {
     throw thunkAPI.rejectWithValue(error.response?.data || error.message);
   }

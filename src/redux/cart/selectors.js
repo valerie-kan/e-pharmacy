@@ -1,6 +1,6 @@
-export const selectProducts = (state) => state.products.products;
+export const selectCart = (state) => state.cart.cart;
 
-export const selectProductDetails = (state) => state.products.selectedProduct;
+export const selectAddCart = (state) => state.cart.cart;
 
 export const selectTotalPages = (state) => state.products.totalPages;
 

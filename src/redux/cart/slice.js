@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addToCart } from "./operations";
+import { addToCart, getCart } from "./operations";
 
 // import { getProductById, getProducts } from "./operations";
 
@@ -19,20 +19,19 @@ const cartSlice = createSlice({
   // },
   extraReducers: (builder) => {
     builder
-      // .addCase(getProducts.pending, (state) => {
-      //   state.isLoading = true;
-      //   state.error = null;
-      // })
-      // .addCase(getProducts.fulfilled, (state, { payload }) => {
-      //   state.isLoading = false;
-      //   state.products = payload.data.items;
-      //   // console.log(payload.data);
-      //   state.totalPages = payload.data.totalPages;
-      // })
-      // .addCase(getProducts.rejected, (state, { payload }) => {
-      //   state.isLoading = false;
-      //   state.error = payload;
-      // })
+      .addCase(getCart.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getCart.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.cart = payload;
+        // console.log(payload.data);
+      })
+      .addCase(getCart.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
       .addCase(addToCart.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -40,7 +39,7 @@ const cartSlice = createSlice({
       .addCase(addToCart.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         // console.log("payload.data:", payload.data);
-        state.cart = payload;
+        state.cart = [...state.cart, payload];
       })
       .addCase(addToCart.rejected, (state, { payload }) => {
         state.isLoading = false;
