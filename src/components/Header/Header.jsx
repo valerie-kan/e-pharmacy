@@ -1,15 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import clsx from "clsx";
 
 import css from "./Header.module.css";
 
+import logo from "../../assets/images/logo-desktop-green.png";
+
 import sprite from "../../assets/icons/sprite.svg";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { selectIsLoggedIn, selectToken } from "../../redux/auth/selectors";
+import { setToken } from "../../redux/auth/operations";
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import UserHeader from "../UserHeader/UserHeader";
@@ -20,6 +23,13 @@ const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (token) {
+      setToken(token);
+    }
+  }, [token]);
 
   const isHomePage = location.pathname === "/";
 
@@ -28,11 +38,7 @@ const Header = () => {
   return (
     <div className={clsx(css.headerWrapper, isHomePage && css.headerGreen)}>
       <Link className={css.logoLink} to="/">
-        <img
-          className={css.logoImg}
-          src="var(--image-logo-desktop-green2x)"
-          alt="Logo image"
-        />
+        <img className={css.logoImg} src={logo} alt="Logo image" />
         <span className={css.logoSpan}>E-Pharmacy</span>
       </Link>
       {isDesktop && <NavigationLinks />}

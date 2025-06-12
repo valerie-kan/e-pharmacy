@@ -16,7 +16,8 @@
   width: 119px;
 }
 
-.registerLink:hover {
+.registerLink:hover,
+.logoutBtn:hover {
   background-color: var(--color-green-hover);
   border-color: transparent;
 }
@@ -35,6 +36,7 @@
 .greenLink {
   border: 1px solid rgba(89, 177, 122, 0.5);
   color: var(--color-green);
+  background-color: transparent;
 }
 
 .greenLogLink {

@@ -1,12 +1,12 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
 import RestrictedRoute from "./components/RestrictedRoute";
-// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 
 import HomePage from "./pages/HomePage";
 import MedicineStorePage from "./pages/MedicineStorePage/MedicineStorePage";
@@ -15,41 +15,42 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 
-// import { selectIsRefreshing, selectToken } from "./redux/auth/selectors";
-// import { getUser, refreshUser, setToken } from "./redux/auth/operations";
+import { /*selectIsRefreshing,*/ selectToken } from "./redux/auth/selectors";
+import { /*getUser, refreshUser,*/ setToken } from "./redux/auth/operations";
 import { ErrorToast } from "./utils/errorToast";
 
 function App() {
   // const dispatch = useDispatch();
   // const isRefreshing = useSelector(selectIsRefreshing);
-  // const token = useSelector(selectToken);
+  const token = useSelector(selectToken);
+  // console.log("token", token);
 
-  // useEffect(() => {
-  //   if (!token) return;
+  useEffect(() => {
+    if (token) {
+      setToken(token);
+    }
 
-  //   setToken(token);
+    //   const restoreSession = async () => {
+    //     try {
+    //       const result = await dispatch(refreshUser()).unwrap();
+    //       if (result?.token) {
+    //         setToken(result.token);
+    //         await dispatch(getUser()).unwrap();
+    //       }
+    //     } catch (err) {
+    //       ErrorToast(err);
+    //     }
+    //   };
 
-  //   const restoreSession = async () => {
-  //     try {
-  //       const result = await dispatch(refreshUser()).unwrap();
-  //       if (result?.token) {
-  //         setToken(result.token);
-  //         await dispatch(getUser()).unwrap();
-  //       }
-  //     } catch (err) {
-  //       ErrorToast(err);
-  //     }
-  //   };
-
-  //   restoreSession();
-  // }, [dispatch, token]);
+    //   restoreSession();
+  }, [token]);
 
   // if (isRefreshing) return <Loader />;
 
   return (
     <Suspense fallback={<Loader />}>
       <Toaster />
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes>
         <Route
           path="/login"

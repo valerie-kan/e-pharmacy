@@ -45,7 +45,7 @@ const BurgerMenu = ({ modalOpen, setisOpen, isLoggedIn }) => {
         <svg className={css.closeIcon} onClick={() => setisOpen(false)}>
           <use href={`${sprite}#icon-x`} />
         </svg>
-        <NavigationLinks setisOpen={setisOpen} />
+        <NavigationLinks setisOpen={setisOpen} modalOpen={modalOpen} />
         <AuthenticationLinks isLoggedIn={isLoggedIn} isHomePage={isHomePage} />
       </div>
     </div>
