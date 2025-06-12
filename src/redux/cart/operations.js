@@ -5,20 +5,35 @@ import { api } from "../../utils/api";
 export const getCart = createAsyncThunk("cart/getCart", async (_, thunkAPI) => {
   try {
     const { data } = await api.get("/cart");
-    // console.log("cart", data);
-    return data.data.items;
+    console.log("getcart", data.data);
+    return data.data;
   } catch (error) {
     throw thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
 
-export const addToCart = createAsyncThunk(
-  "cart/addToCart",
-  async ({ items }, thunkAPI) => {
+export const addCart = createAsyncThunk(
+  "cart/addCart",
+  async ({ productId, quantity = 1 }, thunkAPI) => {
     try {
-      const { data } = await api.post("/cart", { items });
-      // console.log(data.data.items);
-      return data.data.items;
+      const { data } = await api.post("/cart", { productId, quantity });
+      console.log("addCart:", data.data);
+      return data.data;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
+export const updateCart = createAsyncThunk(
+  "cart/updateCart",
+  async ({ cartId, productId, quantity = 1 }, thunkAPI) => {
+    try {
+      const { data } = await api.put(`/cart/update/${cartId}/${productId}`, {
+        quantity,
+      });
+      console.log("updateCart:", data.data);
+      return data.data;
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.response?.data || error.message);
     }

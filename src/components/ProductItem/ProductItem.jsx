@@ -8,26 +8,42 @@ import css from "./ProductItem.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
 
-import { addToCart } from "../../redux/cart/operations";
+import { addCart, updateCart } from "../../redux/cart/operations";
 
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
 
-const ProductItem = ({ product, onDetailsClick, isLoggedIn, navigate }) => {
+const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [prodQuant, setProdQuant] = useState(1);
+
+  // const [cart, setCart] = useState();
 
   const isMedicinePage = location.pathname === "/medicine";
 
   const handleAddToCart = async (id, quantity = 1) => {
     try {
       if (isLoggedIn) {
-        await dispatch(
-          addToCart({ items: { productId: id, quantity } })
-        ).unwrap();
-        SuccessToast("The product was added");
-        navigate("/cart");
+        const savedCart = JSON.parse(localStorage.getItem("cart"));
+        console.log("savedCart", savedCart);
+
+        if (!savedCart) {
+          const newCart = await dispatch(
+            addCart({ productId: id, quantity })
+          ).unwrap();
+
+          localStorage.setItem("cart", JSON.stringify(newCart));
+          // setCart(newCart);
+          SuccessToast("The product was added");
+        } else {
+          const updatedCart = await dispatch(
+            updateCart({ cartId: savedCart._id, productId: id, quantity })
+          ).unwrap();
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
+          // setCart(updatedCart);
+          SuccessToast("The product was added");
+        }
       } else {
         ErrorToast("To add a product please log in!");
       }
