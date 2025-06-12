@@ -9,7 +9,7 @@ import { LoginSchema } from "../../utils/validationSchemas";
 import { SuccessToast } from "../../utils/successToast";
 import { ErrorToast } from "../../utils/errorToast";
 
-import { login } from "../../redux/auth/operations";
+import { getUser, login } from "../../redux/auth/operations";
 import { selectIsLoading } from "../../redux/auth/selectors";
 
 import Input from "../Input/Input";
@@ -30,6 +30,7 @@ const LoginForm = () => {
       await dispatch(login(data)).unwrap();
       SuccessToast("You are successfully logged in");
       reset();
+      await dispatch(getUser()).unwrap();
     } catch (e) {
       ErrorToast(e.message);
     }

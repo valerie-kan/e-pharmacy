@@ -108,33 +108,33 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 //   }
 // );
 
-// export const refreshUser = createAsyncThunk(
-//   "auth/refresh",
-//   async (_, thunkAPI) => {
-//     try {
-//       // Надсилаємо запит на оновлення токена (refresh token у cookie)
-//       const { data } = await api.post("/user/refresh");
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      // Надсилаємо запит на оновлення токена (refresh token у cookie)
+      const { data } = await api.post("/user/refresh");
 
-//       // const { accessToken, user } = data;
+      // const { accessToken, user } = data;
 
-//       // Зберігаємо новий access token
-//       setToken(data.accessToken);
+      // Зберігаємо новий access token
+      setToken(data.accessToken);
 
-//       // Повертаємо оновлені дані користувача (можна також зробити окремий GET /user)
-//       console.log("refreshUser:", data);
-//       return data;
-//     } catch {
-//       return thunkAPI.rejectWithValue("Unable to refresh session");
-//     }
-//   }
-// );
+      // Повертаємо оновлені дані користувача (можна також зробити окремий GET /user)
+      console.log("refreshUser:", data);
+      return { token: data.accessToken };
+    } catch {
+      return thunkAPI.rejectWithValue("Unable to refresh session");
+    }
+  }
+);
 
-// export const getUser = createAsyncThunk("auth/getUser", async (_, thunkAPI) => {
-//   try {
-//     const { data } = await api.get("/user/user-info");
-//     console.log("getUser:", data);
-//     return data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue(error.response?.data || error.message);
-//   }
-// });
+export const getUser = createAsyncThunk("auth/getUser", async (_, thunkAPI) => {
+  try {
+    const { data } = await api.get("/user/user-info");
+    // console.log("getUser:", data.data);
+    return data.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

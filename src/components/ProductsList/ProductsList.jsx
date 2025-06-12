@@ -16,12 +16,14 @@ import { ErrorToast } from "../../utils/errorToast";
 import Pagination from "../Pagination/Pagination";
 import Loader from "../Loader";
 import ProductItem from "../ProductItem/ProductItem";
+import { useNavigate } from "react-router-dom";
 
 const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const isLoading = useSelector(selectIsLoading);
   const totalPages = useSelector(selectTotalPages);
+  const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
 
@@ -49,7 +51,9 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
 
   const onDetailsClick = async (id) => {
     try {
-      await dispatch(getProductById(id)).unwrap();
+      const { data } = await dispatch(getProductById(id)).unwrap();
+      localStorage.setItem("selectedProduct", JSON.stringify(data));
+      navigate("/medicine-details");
     } catch (error) {
       ErrorToast(error.message);
     }

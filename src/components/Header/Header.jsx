@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import clsx from "clsx";
 
@@ -11,8 +11,7 @@ import sprite from "../../assets/icons/sprite.svg";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-import { selectIsLoggedIn, selectToken } from "../../redux/auth/selectors";
-import { setToken } from "../../redux/auth/operations";
+import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import UserHeader from "../UserHeader/UserHeader";
@@ -23,13 +22,7 @@ const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const token = useSelector(selectToken);
-
-  useEffect(() => {
-    if (token) {
-      setToken(token);
-    }
-  }, [token]);
+  const username = useSelector(selectUserName);
 
   const isHomePage = location.pathname === "/";
 
@@ -43,7 +36,9 @@ const Header = () => {
       </Link>
       {isDesktop && <NavigationLinks />}
       <div className={css.userPartWrpr}>
-        {isLoggedIn && <UserHeader isHomePage={isHomePage} />}
+        {isLoggedIn && (
+          <UserHeader isHomePage={isHomePage} username={username} />
+        )}
         {isDesktop && (
           <AuthenticationLinks
             isLoggedIn={isLoggedIn}

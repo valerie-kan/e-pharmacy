@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
@@ -15,24 +15,24 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 
-import { /*selectIsRefreshing,*/ selectToken } from "./redux/auth/selectors";
-import { /*getUser, refreshUser,*/ setToken } from "./redux/auth/operations";
+import { selectIsRefreshing, selectToken } from "./redux/auth/selectors";
+import { getUser, refreshUser, setToken } from "./redux/auth/operations";
 import { ErrorToast } from "./utils/errorToast";
 
 function App() {
   // const dispatch = useDispatch();
   // const isRefreshing = useSelector(selectIsRefreshing);
   const token = useSelector(selectToken);
-  // console.log("token", token);
 
   useEffect(() => {
-    if (token) {
-      setToken(token);
-    }
+    if (!token) return;
+
+    setToken(token);
 
     //   const restoreSession = async () => {
     //     try {
     //       const result = await dispatch(refreshUser()).unwrap();
+    //       console.log(result);
     //       if (result?.token) {
     //         setToken(result.token);
     //         await dispatch(getUser()).unwrap();

@@ -88,7 +88,6 @@ const ProductItem = ({ product, onDetailsClick }) => {
           {isMedicinePage && (
             <Link
               className={css.productLink}
-              to="/medicine-details"
               onClick={() => onDetailsClick(product._id)}
             >
               Details

@@ -1,13 +1,9 @@
-import { useSelector } from "react-redux";
-
 import css from "./ProductDetailsPage.module.css";
-
-import { selectProductDetails } from "../../redux/products/selectors";
 
 import ProductItem from "../../components/ProductItem/ProductItem";
 
 const ProductDetailsPage = () => {
-  const selectedProduct = useSelector(selectProductDetails);
+  const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
 
   return (
     <section className={css.sectionWRapper}>
