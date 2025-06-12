@@ -62,10 +62,49 @@
 .totalSpan {
   font-weight: 600;
   font-size: 16px;
+  line-height: 140%;
 }
 
 .submitBtn {
   padding: 13px;
   width: 141px;
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .formWrapper {
+    padding: 40px 78px;
+  }
+
+  .subSectTtl {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .inputsWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 20px;
+  }
+
+  .inputWrapper {
+    width: calc((100% - 14px) / 2);
+  }
+
+  .totalWrapper {
+    padding: 20px;
+  }
+
+  .totalSpan {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formWrapper {
+    padding-inline: 40px;
+    width: 628px;
+  }
 }

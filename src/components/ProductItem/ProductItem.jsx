@@ -6,19 +6,16 @@ import clsx from "clsx";
 
 import css from "./ProductItem.module.css";
 
-import sprite from "../../assets/icons/sprite.svg";
-
 import { addCart, updateCart } from "../../redux/cart/operations";
 
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
+import AddProductButton from "../AddProductButton/AddProductButton";
 
 const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [prodQuant, setProdQuant] = useState(1);
-
-  // const [cart, setCart] = useState();
 
   const isMedicinePage = location.pathname === "/medicine";
 
@@ -26,7 +23,7 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
     try {
       if (isLoggedIn) {
         const savedCart = JSON.parse(localStorage.getItem("cart"));
-        console.log("savedCart", savedCart);
+        // console.log("savedCart", savedCart);
 
         if (!savedCart) {
           const newCart = await dispatch(
@@ -34,14 +31,13 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
           ).unwrap();
 
           localStorage.setItem("cart", JSON.stringify(newCart));
-          // setCart(newCart);
           SuccessToast("The product was added");
         } else {
           const updatedCart = await dispatch(
             updateCart({ cartId: savedCart._id, productId: id, quantity })
           ).unwrap();
+
           localStorage.setItem("cart", JSON.stringify(updatedCart));
-          // setCart(updatedCart);
           SuccessToast("The product was added");
         }
       } else {
@@ -94,27 +90,10 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
           )}
         >
           {!isMedicinePage && (
-            <div className={css.addProductWrapper}>
-              <svg
-                className={css.addIcon}
-                onClick={() => {
-                  setProdQuant(prodQuant + 1);
-                }}
-              >
-                <use href={`${sprite}#icon-plus`} />
-              </svg>
-              <span className={css.prodNumber}>{prodQuant}</span>
-              <svg
-                className={clsx(css.addIcon, prodQuant === 1 && css.disabled)}
-                onClick={() => {
-                  if (prodQuant > 1) {
-                    setProdQuant(prodQuant - 1);
-                  }
-                }}
-              >
-                <use href={`${sprite}#icon-minus`} />
-              </svg>
-            </div>
+            <AddProductButton
+              prodQuant={prodQuant}
+              setProdQuant={setProdQuant}
+            />
           )}
           <button
             className={clsx(

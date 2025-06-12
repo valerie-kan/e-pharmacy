@@ -38,7 +38,6 @@ const Header = () => {
       const cart = await dispatch(getCart()).unwrap();
 
       if (cart) localStorage.setItem("cart", JSON.stringify(cart));
-      console.log("Successfully get a cart");
     } catch (error) {
       ErrorToast(error.message);
     }

@@ -32,9 +32,11 @@ const CartPage = () => {
     updateTotalProducts();
     if (!cart) return setTotal(0);
 
-    const totalPrice = cart.items.reduce((sum, item) => {
-      return sum + item.quantity * item.price;
-    }, 0);
+    const totalPrice = cart.items
+      .reduce((sum, item) => {
+        return sum + item.quantity * item.price;
+      }, 0)
+      .toFixed(2);
     setTotal(totalPrice);
   }, [cart, updateTotalProducts]);
 
@@ -63,15 +65,17 @@ const CartPage = () => {
   return (
     <section className={css.sectionWrapper}>
       <h3 className={css.sectionTtl}>Cart</h3>
-      <CartMainInfo
-        register={register}
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        errors={errors}
-        touchedFields={touchedFields}
-        total={total}
-      />
-      <CartProducts />
+      <div className={css.mainContentWrapper}>
+        <CartMainInfo
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          errors={errors}
+          touchedFields={touchedFields}
+          total={total}
+        />
+        {cart && <CartProducts products={cart.items} cartId={cart._id} />}
+      </div>
     </section>
   );
 };

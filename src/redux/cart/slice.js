@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addCart, getCart, placeOrder, updateCart } from "./operations";
+import {
+  addCart,
+  getCart,
+  placeOrder,
+  removeProduct,
+  updateCart,
+} from "./operations";
 
 const initialState = {
   cart: null,
-  // cartId: "",
   isLoading: false,
   error: null,
 };
@@ -11,11 +16,6 @@ const initialState = {
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  // reducers: {
-  //   clearProds: (state) => {
-  //     state.products = [];
-  //   },
-  // },
   extraReducers: (builder) => {
     builder
       .addCase(getCart.pending, (state) => {
@@ -25,7 +25,6 @@ const cartSlice = createSlice({
       .addCase(getCart.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.cart = payload;
-        // console.log(payload.data);
       })
       .addCase(getCart.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -37,9 +36,7 @@ const cartSlice = createSlice({
       })
       .addCase(addCart.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        // console.log("payload.data:", payload.data);
         state.cart = payload;
-        // state.cartId = payload._id;
       })
       .addCase(addCart.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -51,11 +48,23 @@ const cartSlice = createSlice({
       })
       .addCase(updateCart.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        // console.log("payload.data:", payload.data);
         state.cart = payload;
-        // state.cartId = payload._id;
       })
       .addCase(updateCart.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(removeProduct.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(removeProduct.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.cart.items = state.cart.items.filter(
+          (item) => item.productId !== payload
+        );
+      })
+      .addCase(removeProduct.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       })
@@ -74,4 +83,3 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-// export const { clearProds } = productsSlice.actions;

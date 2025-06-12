@@ -60,27 +60,6 @@
   align-items: center;
 }
 
-.addProductWrapper {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  border: 1px solid rgba(29, 30, 33, 0.1);
-  border-radius: 60px;
-  width: 108px;
-  padding: 12px 18px;
-}
-
-.addIcon {
-  width: 20px;
-  height: 20px;
-  color: var(--color-green);
-}
-
-.disabled {
-  color: rgba(29, 30, 33, 0.5);
-  cursor: auto;
-}
-
 .productBtn {
   border-radius: 24px;
   padding: 10px;
