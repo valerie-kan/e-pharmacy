@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
-import Input from "../Input/Input";
-import css from "./CartMainInfo.module.css";
 import clsx from "clsx";
-import { useState } from "react";
+
+import css from "./CartMainInfo.module.css";
+
+import Input from "../Input/Input";
 
 const customerInfo = [
   { label: "Name", id: "name", type: "text" },
@@ -11,19 +11,14 @@ const customerInfo = [
   { label: "Address", id: "address", type: "text" },
 ];
 
-const CartMainInfo = () => {
-  const {
-    register,
-    reset,
-    watch,
-    handleSubmit,
-    formState: { errors, touchedFields },
-  } = useForm({ defaultValues: { paymentMethod: "cash" } });
-
-  const [total, setTotal] = useState(0);
-
-  const onSubmit = () => {};
-
+const CartMainInfo = ({
+  register,
+  handleSubmit,
+  onSubmit,
+  errors,
+  touchedFields,
+  total,
+}) => {
   return (
     <form className={css.formWrapper} onSubmit={handleSubmit(onSubmit)}>
       <div className={clsx(css.shippingInfoSect, css.subSection)}>
@@ -34,7 +29,7 @@ const CartMainInfo = () => {
         </p>
         <div className={css.inputsWrapper}>
           {customerInfo.map((item) => (
-            <div className={css.inputWrapper}>
+            <div className={css.inputWrapper} key={item.id}>
               <label className={css.inputLabel} htmlFor={`#${item.id}`}>
                 {item.label}
               </label>

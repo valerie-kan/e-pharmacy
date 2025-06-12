@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import SharedLayout from "./components/SharedLayout";
 import Loader from "./components/Loader";
@@ -17,37 +17,17 @@ import RegisterPage from "./pages/RegisterPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import CartPage from "./pages/CartPage/CartPage";
 
-import { selectIsRefreshing, selectToken } from "./redux/auth/selectors";
-import { getUser, refreshUser, setToken } from "./redux/auth/operations";
-import { ErrorToast } from "./utils/errorToast";
+import { selectToken } from "./redux/auth/selectors";
+import { setToken } from "./redux/auth/operations";
 
 function App() {
-  // const dispatch = useDispatch();
-  // const isRefreshing = useSelector(selectIsRefreshing);
   const token = useSelector(selectToken);
 
   useEffect(() => {
     if (!token) return;
 
     setToken(token);
-
-    //   const restoreSession = async () => {
-    //     try {
-    //       const result = await dispatch(refreshUser()).unwrap();
-    //       console.log(result);
-    //       if (result?.token) {
-    //         setToken(result.token);
-    //         await dispatch(getUser()).unwrap();
-    //       }
-    //     } catch (err) {
-    //       ErrorToast(err);
-    //     }
-    //   };
-
-    //   restoreSession();
   }, [token]);
-
-  // if (isRefreshing) return <Loader />;
 
   return (
     <Suspense fallback={<Loader />}>

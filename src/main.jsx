@@ -9,6 +9,8 @@ import "./index.css";
 
 import { store, persistor } from "./redux/store.js";
 
+import { CartProvider } from "./context/CartContext.jsx";
+
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -16,7 +18,9 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

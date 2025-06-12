@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addCart, getCart, updateCart } from "./operations";
+import { addCart, getCart, placeOrder, updateCart } from "./operations";
 
 const initialState = {
   cart: null,
@@ -56,6 +56,17 @@ const cartSlice = createSlice({
         // state.cartId = payload._id;
       })
       .addCase(updateCart.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(placeOrder.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(placeOrder.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(placeOrder.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

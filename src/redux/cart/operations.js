@@ -39,3 +39,16 @@ export const updateCart = createAsyncThunk(
     }
   }
 );
+
+export const placeOrder = createAsyncThunk(
+  "cart/placeOrder",
+  async (formData, thunkAPI) => {
+    try {
+      const { data } = await api.post("/cart/checkout", formData);
+      console.log("placeOrder:", data);
+      return data.data;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
