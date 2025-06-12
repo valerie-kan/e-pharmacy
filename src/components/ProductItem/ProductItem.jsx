@@ -1,17 +1,40 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import clsx from "clsx";
 
 import css from "./ProductItem.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
 
-const ProductItem = ({ product, onDetailsClick }) => {
+import { addToCart } from "../../redux/cart/operations";
+
+import { ErrorToast } from "../../utils/errorToast";
+import { SuccessToast } from "../../utils/successToast";
+
+const ProductItem = ({ product, onDetailsClick, isLoggedIn, navigate }) => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [prodQuant, setProdQuant] = useState(1);
 
   const isMedicinePage = location.pathname === "/medicine";
+
+  const handleAddToCart = async (id, quantity = 1) => {
+    try {
+      if (isLoggedIn) {
+        await dispatch(
+          addToCart({ items: { productId: id, quantity } })
+        ).unwrap();
+        SuccessToast("The product was added");
+        navigate("/cart");
+      } else {
+        ErrorToast("To add a product please log in!");
+      }
+    } catch (error) {
+      ErrorToast(error.message);
+    }
+  };
 
   return (
     <li
@@ -82,6 +105,8 @@ const ProductItem = ({ product, onDetailsClick }) => {
               css.productBtn,
               !isMedicinePage && css.detailsProdBtn
             )}
+            type="button"
+            onClick={() => handleAddToCart(product._id, prodQuant)}
           >
             Add to cart
           </button>

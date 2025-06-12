@@ -17,6 +17,7 @@ import Pagination from "../Pagination/Pagination";
 import Loader from "../Loader";
 import ProductItem from "../ProductItem/ProductItem";
 import { useNavigate } from "react-router-dom";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
   const isLoading = useSelector(selectIsLoading);
   const totalPages = useSelector(selectTotalPages);
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const [page, setPage] = useState(1);
 
@@ -71,6 +73,8 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
                 key={product._id}
                 product={product}
                 onDetailsClick={onDetailsClick}
+                isLoggedIn={isLoggedIn}
+                navigate={navigate}
               />
             ))}
           </ul>
