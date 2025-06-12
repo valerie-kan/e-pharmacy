@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import clsx from "clsx";
 
 import css from "./ProductItem.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
-import clsx from "clsx";
 
 const ProductItem = ({ product, onDetailsClick }) => {
   const location = useLocation();
+  const [prodQuant, setProdQuant] = useState(1);
 
   const isMedicinePage = location.pathname === "/medicine";
-
-  const prodQuantity = 1;
 
   return (
     <li
@@ -56,16 +56,22 @@ const ProductItem = ({ product, onDetailsClick }) => {
         >
           {!isMedicinePage && (
             <div className={css.addProductWrapper}>
-              <svg className={css.addIcon} onClick={() => prodQuantity + 1}>
+              <svg
+                className={css.addIcon}
+                onClick={() => {
+                  setProdQuant(prodQuant + 1);
+                }}
+              >
                 <use href={`${sprite}#icon-plus`} />
               </svg>
-              <span className={css.prodNumber}>{prodQuantity}</span>
+              <span className={css.prodNumber}>{prodQuant}</span>
               <svg
-                className={clsx(
-                  css.addIcon,
-                  prodQuantity === 1 && css.disabled
-                )}
-                onClick={() => prodQuantity - 1}
+                className={clsx(css.addIcon, prodQuant === 1 && css.disabled)}
+                onClick={() => {
+                  if (prodQuant > 1) {
+                    setProdQuant(prodQuant - 1);
+                  }
+                }}
               >
                 <use href={`${sprite}#icon-minus`} />
               </svg>
