@@ -74,7 +74,7 @@ const Header = () => {
       {modalOpen && (
         <BurgerMenu
           setisOpen={setModalOpen}
-          burgerOpen={modalOpen}
+          modalOpen={modalOpen}
           isLoggedIn={isLoggedIn}
         />
       )}
