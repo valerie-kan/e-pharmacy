@@ -140,11 +140,6 @@ button:hover {
   --bg-image-tablets: url(./assets/images/tablets.png);
   --image-stars: url(./assets/images/stars.png);
   --image-stars2x: url(./assets/images/stars@2x.png);
-
-  /* font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
 }
 
 @media screen and (min-width: 768px) {

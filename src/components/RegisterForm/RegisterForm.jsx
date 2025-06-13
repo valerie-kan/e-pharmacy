@@ -82,7 +82,6 @@ const RegisterForm = ({ isRegisterPage }) => {
           touchedFields={touchedFields}
         />
       </div>
-      {isLoading && <Loader />}
       <div className={clsx(css.btnWrapper, css.registerBtns)}>
         <button className={css.submitBtn} type="submit">
           Register
@@ -91,6 +90,7 @@ const RegisterForm = ({ isRegisterPage }) => {
           Already have an account?
         </Link>
       </div>
+      {isLoading && <Loader />}
     </form>
   );
 };

@@ -6,7 +6,6 @@ import clsx from "clsx";
 import css from "./Header.module.css";
 
 import logo from "../../assets/images/logo-desktop-green.png";
-
 import sprite from "../../assets/icons/sprite.svg";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -14,11 +13,12 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
 import { getCart } from "../../redux/cart/operations";
 
+import { ErrorToast } from "../../utils/errorToast";
+
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import UserHeader from "../UserHeader/UserHeader";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks";
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
-import { ErrorToast } from "../../utils/errorToast";
 
 const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);

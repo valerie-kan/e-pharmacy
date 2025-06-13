@@ -93,7 +93,6 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.isLoading = false;
         state.isLoggedIn = true;
-        // console.log("getUser payload:", payload);
         state.user.name = payload.username;
         state.user.email = payload.email;
       })

@@ -57,7 +57,6 @@ const LoginForm = () => {
             touchedFields={touchedFields}
           />
         </div>
-        {isLoading && <Loader />}
         <div className={css.btnWrapper}>
           <button className={css.submitBtn} type="submit">
             Log in
@@ -66,6 +65,7 @@ const LoginForm = () => {
             Don't have an account?
           </Link>
         </div>
+        {isLoading && <Loader />}
       </form>
     </>
   );

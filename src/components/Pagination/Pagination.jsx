@@ -1,8 +1,8 @@
+import clsx from "clsx";
+
 import css from "./Pagination.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
-
-import clsx from "clsx";
 
 const Pagination = ({ page, setPage, totalPages }) => {
   const toUp = () => {

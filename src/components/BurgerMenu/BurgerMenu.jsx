@@ -1,10 +1,10 @@
 import css from "./BurgerMenu.module.css";
+import { useEffect } from "react";
 
 import sprite from "../../assets/icons/sprite.svg";
 
 import NavigationLinks from "../NavigationLinks/NavigationLinks";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks";
-import { useEffect } from "react";
 
 const BurgerMenu = ({ modalOpen, setisOpen, isLoggedIn }) => {
   const isHomePage = true;

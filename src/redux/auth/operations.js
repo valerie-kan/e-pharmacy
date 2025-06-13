@@ -51,35 +51,6 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 // export const refreshUser = createAsyncThunk(
 //   "auth/refresh",
 //   async (_, thunkAPI) => {
-//     const refreshToken = localStorage.getItem("token");
-
-//     if (!refreshToken) {
-//       return thunkAPI.rejectWithValue("Refresh token not found");
-//     }
-
-//     try {
-//       const { data } = await api.get("/user/refresh", {
-//         headers: {
-//           Authorization: `Bearer ${refreshToken}`,
-//         },
-//       });
-
-//       if (data.refreshToken) {
-//         localStorage.setItem("refreshToken", data.refreshToken);
-//       }
-//       return {
-//         token: data.token,
-//         refreshToken: data.refreshToken,
-//       };
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// );
-
-// export const refreshUser = createAsyncThunk(
-//   "auth/refresh",
-//   async (_, thunkAPI) => {
 //     // Reading the token from the state via getState()
 //     // console.log('start refresh');
 
@@ -112,15 +83,10 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     try {
-      // Надсилаємо запит на оновлення токена (refresh token у cookie)
       const { data } = await api.post("/user/refresh");
 
-      // const { accessToken, user } = data;
-
-      // Зберігаємо новий access token
       setToken(data.accessToken);
 
-      // Повертаємо оновлені дані користувача (можна також зробити окремий GET /user)
       console.log("refreshUser:", data);
       return { token: data.accessToken };
     } catch {
@@ -132,7 +98,6 @@ export const refreshUser = createAsyncThunk(
 export const getUser = createAsyncThunk("auth/getUser", async (_, thunkAPI) => {
   try {
     const { data } = await api.get("/user/user-info");
-    // console.log("getUser:", data.data);
     return data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data || error.message);

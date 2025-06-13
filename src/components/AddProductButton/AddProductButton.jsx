@@ -1,34 +1,38 @@
 import clsx from "clsx";
+import { useDispatch } from "react-redux";
 
 import css from "./AddProductButton.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
+
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
-import { useDispatch } from "react-redux";
+
 import { updateCart } from "../../redux/cart/operations";
 
 const AddProductButton = ({
+  cartId,
   prodQuant,
   setProdQuant,
   isCartPage,
   prodId,
   itemQuant,
+  updateTotalProducts,
 }) => {
   const dispatch = useDispatch();
 
   const handlePlusClick = async () => {
     try {
-      const savedCart = JSON.parse(localStorage.getItem("cart"));
       const updatedCart = await dispatch(
         updateCart({
-          cartId: savedCart._id,
+          cartId,
           productId: prodId,
           quantity: prodQuant,
         })
       ).unwrap();
 
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+      updateTotalProducts();
       SuccessToast("The product was added");
     } catch (error) {
       ErrorToast(error.messge);
@@ -42,7 +46,11 @@ const AddProductButton = ({
       <svg
         className={css.addIcon}
         onClick={() => {
-          !isCartPage ? setProdQuant(prodQuant + 1) : handlePlusClick;
+          if (!isCartPage) {
+            setProdQuant(prodQuant + 1);
+          } else {
+            handlePlusClick();
+          }
         }}
       >
         <use href={`${sprite}#icon-plus`} />

@@ -10,6 +10,7 @@ import { addCart, updateCart } from "../../redux/cart/operations";
 
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
+
 import AddProductButton from "../AddProductButton/AddProductButton";
 
 const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
@@ -23,7 +24,6 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
     try {
       if (isLoggedIn) {
         const savedCart = JSON.parse(localStorage.getItem("cart"));
-        // console.log("savedCart", savedCart);
 
         if (!savedCart) {
           const newCart = await dispatch(

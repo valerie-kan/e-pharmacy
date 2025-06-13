@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import clsx from "clsx";
 
 import css from "./AuthTemplate.module.css";
 
 import sprite from "../../assets/icons/sprite.svg";
-import clsx from "clsx";
 
 const AuthTemplate = ({ children, isRegisterPage }) => {
   return (

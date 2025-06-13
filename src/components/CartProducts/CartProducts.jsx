@@ -1,26 +1,40 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import css from "./CartProducts.module.css";
 
-import AddProductButton from "../AddProductButton/AddProductButton";
-import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { ErrorToast } from "../../utils/errorToast";
-import { removeProduct } from "../../redux/cart/operations";
 import { SuccessToast } from "../../utils/successToast";
-// import { selectCart } from "../../redux/cart/selectors";
+import { ErrorToast } from "../../utils/errorToast";
 
-const CartProducts = ({ products, cartId }) => {
+import { removeProduct } from "../../redux/cart/operations";
+
+import AddProductButton from "../AddProductButton/AddProductButton";
+
+const CartProducts = ({ products, cartId, updateTotalProducts }) => {
   const dispatch = useDispatch();
   const [prodQuant, setProdQuant] = useState(1);
   const location = useLocation();
-  // const cart = useSelector(selectCart);
 
   const isCartPage = location.pathname === "/cart";
 
   const handleRemoveClick = async (productId) => {
     try {
       await dispatch(removeProduct({ cartId, productId })).unwrap();
+
+      const savedCart = JSON.parse(localStorage.getItem("cart"));
+      const updatedItems = savedCart.items.filter(
+        (item) => item.productId !== productId
+      );
+
+      const updatedCart = {
+        ...savedCart,
+        items: updatedItems,
+      };
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      updateTotalProducts();
       SuccessToast("Product was delated");
     } catch (error) {
       ErrorToast(error.message);
@@ -43,11 +57,13 @@ const CartProducts = ({ products, cartId }) => {
               <p className={css.price}>৳ {item.price}</p>
               <div className={css.btnsWrapper}>
                 <AddProductButton
+                  cartId={cartId}
                   prodQuant={prodQuant}
                   setProdQuant={setProdQuant}
                   isCartPage={isCartPage}
                   prodId={item.productId}
                   itemQuant={item.quantity}
+                  updateTotalProducts={updateTotalProducts}
                 />
                 <button
                   className={css.productBtn}

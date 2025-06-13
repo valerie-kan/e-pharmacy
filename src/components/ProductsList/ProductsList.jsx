@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import css from "./ProductsList.module.css";
 
@@ -10,14 +11,13 @@ import {
 } from "../../redux/products/selectors";
 import { clearProds } from "../../redux/products/slice";
 import { getProducts, getProductById } from "../../redux/products/operations";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 import { ErrorToast } from "../../utils/errorToast";
 
 import Pagination from "../Pagination/Pagination";
 import Loader from "../Loader";
 import ProductItem from "../ProductItem/ProductItem";
-import { useNavigate } from "react-router-dom";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
   const dispatch = useDispatch();

@@ -1,0 +1,42 @@
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.descriptText {
+  color: var(--color-gray);
+}
+
+.descriptSpan {
+  color: var(--primary-color-bl);
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .descriptionWrapper {
+    margin-bottom: 32px;
+  }
+
+  .descriptText,
+  .descriptSpan {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .descriptionWrapper {
+    margin-bottom: 40px;
+  }
+}

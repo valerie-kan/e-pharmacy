@@ -74,7 +74,13 @@ const CartPage = () => {
           touchedFields={touchedFields}
           total={total}
         />
-        {cart && <CartProducts products={cart.items} cartId={cart._id} />}
+        {cart && (
+          <CartProducts
+            products={cart.items}
+            cartId={cart._id}
+            updateTotalProducts={updateTotalProducts}
+          />
+        )}
       </div>
     </section>
   );
