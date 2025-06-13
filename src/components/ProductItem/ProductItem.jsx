@@ -62,7 +62,7 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
       <div
         className={clsx(
           css.imgWrapper,
-          !isMedicinePage && css.detailsImgWRapper
+          !isMedicinePage && css.detailsImgWrapper
         )}
       >
         <img className={css.image} src={product.photo} alt="Product image" />

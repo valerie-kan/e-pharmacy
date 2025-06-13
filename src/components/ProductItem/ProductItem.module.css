@@ -88,6 +88,10 @@
     width: calc((100% - 13px * 2) / 3);
   }
 
+  .detailsProdItem {
+    width: 704px;
+  }
+
   .imgWrapper {
     width: 226px;
     height: 260px;
@@ -103,17 +107,17 @@
     font-size: 18px;
   }
 
-  .detailsProdName,
-  .detailsPrice {
-    font-size: 20px;
-  }
-
   .productName {
-    width: 110px;
+    max-width: 115px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .detailsProdName,
+  .detailsPrice {
+    font-size: 20px;
   }
 
   .price {
@@ -128,7 +132,6 @@
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .detailsProdItem {
-    width: 100%;
     flex-direction: row;
     gap: 16px;
   }
