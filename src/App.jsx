@@ -20,7 +20,38 @@ import CartPage from "./pages/CartPage/CartPage";
 import { selectToken } from "./redux/auth/selectors";
 import { setToken } from "./redux/auth/operations";
 
+// import { getUser, refreshUser } from "./redux/auth/operations";
+// import { useDispatch } from "react-redux";
+// import { selectIsRefreshing } from "./redux/auth/selectors";
+// import { ErrorToast } from "./utils/errorToast";
+
 function App() {
+  // const dispatch = useDispatch();
+  // const isRefreshing = useSelector(selectIsRefreshing);
+  // const token = useSelector(selectToken);
+
+  // useEffect(() => {
+  //   if (!token) return;
+
+  //   setToken(token);
+
+  //   const restoreSession = async () => {
+  //     try {
+  //       const result = await dispatch(refreshUser()).unwrap();
+  //       if (result?.token) {
+  //         setToken(result.token);
+  //         await dispatch(getUser()).unwrap();
+  //       }
+  //     } catch (err) {
+  //       ErrorToast(err);
+  //     }
+  //   };
+
+  //   restoreSession();
+  // }, [token, dispatch]);
+
+  // if (isRefreshing) return <Loader />;
+
   const token = useSelector(selectToken);
 
   useEffect(() => {

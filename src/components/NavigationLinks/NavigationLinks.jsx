@@ -21,7 +21,6 @@ const NavigationLinks = ({ setisOpen, modalOpen }) => {
             to={link.to}
             className={linkCls}
             onClick={() => {
-              console.log("modalOpen", modalOpen);
               if (modalOpen) {
                 setisOpen(false);
               }

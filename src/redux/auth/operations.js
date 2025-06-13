@@ -52,16 +52,16 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 //   "auth/refresh",
 //   async (_, thunkAPI) => {
 //     // Reading the token from the state via getState()
-//     // console.log('start refresh');
+//     console.log("start refresh");
 
 //     const state = thunkAPI.getState();
-//     // console.log({ state });
+//     console.log("state", state);
 
 //     const persistedToken = state.auth.token;
-//     // console.log({ persistedToken });
+//     console.log("persistedToken", persistedToken);
 
 //     if (persistedToken === null) {
-//       // console.warn('No token found');
+//       console.warn("No token found");
 //       // If there is no token, exit without performing any request
 //       return thunkAPI.rejectWithValue("Unable to fetch user");
 //     }
@@ -69,10 +69,10 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 //     try {
 //       // If there is a token, add it to the HTTP header and perform the request
 //       setToken(persistedToken);
-//       const { data } = await api.зщіе("/user/refresh");
-//       // console.log(data);
+//       const { data } = await api.post("/user/refresh");
+//       console.log(data);
 
-//       return data.data;
+//       // return data.data;
 //     } catch (e) {
 //       return thunkAPI.rejectWithValue(e.message);
 //     }
