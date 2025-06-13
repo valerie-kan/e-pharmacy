@@ -27,7 +27,7 @@ const MedicinePage = () => {
 
   const applyFilters = async (filters) => {
     try {
-      console.log("filters", filters);
+      // console.log("filters", filters);
       await dispatch(getProducts({ perPage, filters })).unwrap();
     } catch (error) {
       ErrorToast(error.message);

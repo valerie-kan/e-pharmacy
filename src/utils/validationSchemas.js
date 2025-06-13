@@ -26,3 +26,14 @@ export const RegisterSchema = Yup.object({
     .min(7, "Password must be at least 7 symbols")
     .max(20, "Password must be at most 20 symbols"),
 });
+
+export const OrderSchema = Yup.object({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string()
+    .required("Email is required")
+    .matches(emailRegexp, "Invalid email address"),
+  phone: Yup.string()
+    .required("Phone number is required")
+    .matches(phoneRegexp, "Invalid phone number"),
+  address: Yup.string().required("Address is required"),
+});

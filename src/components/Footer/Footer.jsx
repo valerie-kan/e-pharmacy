@@ -19,7 +19,7 @@ const Footer = () => {
     <section className={css.sectionWrapper}>
       <div className={css.mainInfo}>
         <div className={css.linkAndTextWrapper}>
-          <Link className={css.logoLink} to="/">
+          <Link className={css.logoLink} to="/" onClick={handleLinkClick}>
             <img
               className={css.logoImg}
               src="var(--image-logo-desktop-white)"

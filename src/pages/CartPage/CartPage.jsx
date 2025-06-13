@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -6,6 +7,7 @@ import css from "./CartPage.module.css";
 
 import { ErrorToast } from "../../utils/errorToast";
 import { SuccessToast } from "../../utils/successToast";
+import { OrderSchema } from "../../utils/validationSchemas";
 
 import { placeOrder } from "../../redux/cart/operations";
 
@@ -24,7 +26,10 @@ const CartPage = () => {
     reset,
     handleSubmit,
     formState: { errors, touchedFields },
-  } = useForm({ defaultValues: { paymentMethod: "cash" } });
+  } = useForm({
+    resolver: yupResolver(OrderSchema),
+    defaultValues: { paymentMethod: "cash" },
+  });
 
   const cart = JSON.parse(localStorage.getItem("cart"));
 

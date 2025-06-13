@@ -78,7 +78,7 @@ const ProductsList = ({ perPage, getPerPage, setPerPage }) => {
               />
             ))}
           </ul>
-          {page < totalPages && (
+          {totalPages > 1 && (
             <Pagination page={page} setPage={setPage} totalPages={totalPages} />
           )}
         </>

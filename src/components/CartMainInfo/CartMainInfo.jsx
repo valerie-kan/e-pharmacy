@@ -41,6 +41,9 @@ const CartMainInfo = ({
                 errors={errors}
                 touchedFields={touchedFields}
               />
+              {/* {errors[item.id] && touchedFields[item.id] && (
+                <p className={css.errorMessage}>{errors[item.id]?.message}</p>
+              )} */}
             </div>
           ))}
         </div>

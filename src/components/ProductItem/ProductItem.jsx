@@ -13,12 +13,16 @@ import { SuccessToast } from "../../utils/successToast";
 
 import AddProductButton from "../AddProductButton/AddProductButton";
 
+import { useCart } from "../../context/CartContext";
+
 const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [prodQuant, setProdQuant] = useState(1);
 
   const isMedicinePage = location.pathname === "/medicine";
+
+  const { updateTotalProducts } = useCart();
 
   const handleAddToCart = async (id, quantity = 1) => {
     try {
@@ -31,6 +35,7 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
           ).unwrap();
 
           localStorage.setItem("cart", JSON.stringify(newCart));
+          updateTotalProducts();
           SuccessToast("The product was added");
         } else {
           const updatedCart = await dispatch(
@@ -38,6 +43,7 @@ const ProductItem = ({ product, onDetailsClick, isLoggedIn }) => {
           ).unwrap();
 
           localStorage.setItem("cart", JSON.stringify(updatedCart));
+          updateTotalProducts();
           SuccessToast("The product was added");
         }
       } else {
