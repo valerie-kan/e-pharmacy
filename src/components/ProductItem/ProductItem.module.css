@@ -93,6 +93,11 @@
     height: 260px;
   }
 
+  .detailsImgWrapper {
+    width: 364px;
+    height: 284px;
+  }
+
   .productName,
   .price {
     font-size: 18px;
@@ -128,11 +133,6 @@
     gap: 16px;
   }
 
-  .detailsImgWRapper {
-    width: 364px;
-    height: 284px;
-  }
-
   .detailsProdInfoWrpr {
     width: 324px;
     padding: 32px;
@@ -158,6 +158,7 @@
 
   .detailsProdItem {
     width: 364px;
+    height: 531px;
     flex-direction: column;
     gap: 20px;
   }

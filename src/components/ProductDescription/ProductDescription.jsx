@@ -1,15 +1,8 @@
-import clsx from "clsx";
-
 import css from "./ProductDescription.module.css";
 
-const ProductDescription = ({ activeBtn }) => {
+const ProductDescription = () => {
   return (
-    <div
-      className={clsx(
-        css.descriptionWrapper,
-        activeBtn === "reviews" && css.visuallyHidden
-      )}
-    >
+    <div className={css.descriptionWrapper}>
       <p className={css.descriptText}>
         Although it's typically considered safe, excessive consumption can lead
         to side effects. Therefore, it's recommended to consult a healthcare

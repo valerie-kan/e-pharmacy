@@ -1,0 +1,93 @@
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.reviewItem {
+  padding: 14px 28px;
+  border: 1px solid var(--bg-white);
+  border-radius: 20px;
+  position: relative;
+}
+
+.userInfoWrpr {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.imgWrapper {
+  width: 44px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personName {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--primary-color-bl);
+  margin-bottom: 4px;
+}
+
+.status {
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.6);
+}
+
+.testimonial {
+  color: var(--color-gray);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--primary-color-bl);
+  position: absolute;
+  top: 14px;
+  right: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .reviewsList {
+    margin-bottom: 38px;
+  }
+
+  .personName {
+    font-size: 18px;
+  }
+
+  .testimonial {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .starsImg {
+    content: var(--image-stars);
+    width: 88px;
+    height: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .starsImg {
+    content: var(--image-stars2x);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .reviewsList {
+    margin-bottom: 26px;
+  }
+}
